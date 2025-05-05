@@ -1,0 +1,123 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HealthCheck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header
+      class="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-white"
+    >
+      <div class="flex items-center space-x-2">
+        <span class="font-semibold text-gray-900 text-xl select-none"
+          >GejalaKu</span
+        >
+      </div>
+      <button
+        aria-label="User profile"
+        class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600"
+      >
+        <i class="fas fa-user-circle text-lg"></i>
+      </button>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-grow flex flex-col items-center pt-8 px-4">
+      <button
+        onclick="window.location.href='check-symptom-page.html';"
+        class="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md px-8 py-3 w-full max-w-md"
+        type="button"
+      >
+        <i class="fas fa-wave-square text-xl"></i>
+        <span>Cek Gejalaku</span>
+      </button>
+
+      <section class="w-full max-w-md mt-8">
+        <h1 class="font-semibold text-gray-900 mb-2 text-xl">
+          Recent Health Checks
+        </h1>
+        <button
+          class="w-full bg-white rounded-lg shadow-sm border border-gray-100 px-4 py-3 flex justify-between items-center text-left hover:shadow-md"
+          type="button"
+        >
+          <div>
+            <p class="font-semibold text-gray-900 text-lg leading-tight">
+              Headache &amp; Fever
+            </p>
+            <p class="text-gray-500 mt-0.5">2 days ago</p>
+          </div>
+          <i class="fas fa-chevron-right text-gray-400 text-lg"></i>
+        </button>
+      </section>
+
+      <section class="w-full max-w-md mt-8">
+        <h2 class="font-semibold text-gray-900 mb-2 text-xl">Health Tips</h2>
+        <div
+          class="bg-white rounded-lg shadow-sm border border-gray-100 px-4 py-4 text-gray-700"
+        >
+          <p class="font-semibold text-gray-900 text-lg leading-tight mb-1">
+            Stay Hydrated
+          </p>
+          <p class="text-md mt-4">
+            Drinking enough water each day is crucial for many reasons: to
+            regulate body temperature, keep joints lubricated, prevent
+            infections, deliver nutrients to cells, and keep organs functioning
+            properly.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom navigation -->
+
+    <nav
+      class="border-t border-gray-200 bg-white text-gray-500 text-lg px-6 py-2"
+    >
+      <div class="max-w-md flex justify-between mx-auto">
+        <button
+          class="flex flex-col items-center text-blue-600"
+          type="button"
+          aria-current="page"
+        >
+          <i class="fas fa-home text-lg"></i>
+          <span class="mt-1">Home</span>
+        </button>
+        <button
+          onclick="window.location.href='check-symptom-page.html';"
+          class="flex flex-col items-center"
+          type="button"
+        >
+          <i class="fas fa-wave-square text-lg"></i>
+          <span class="mt-1">Check</span>
+        </button>
+        <button class="flex flex-col items-center" type="button">
+          <i class="fas fa-clock text-lg"></i>
+          <span class="mt-1">History</span>
+        </button>
+        <button
+          onclick="window.location.href='profile-page.html';"
+          class="flex flex-col items-center"
+          type="button"
+        >
+          <i class="fas fa-user text-lg"></i>
+          <span class="mt-1">Profile</span>
+        </button>
+      </div>
+    </nav>
+  </body>
+</html>
