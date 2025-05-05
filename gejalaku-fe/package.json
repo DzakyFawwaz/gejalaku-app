@@ -1,0 +1,23 @@
+{
+  "name": "gejalaku-app",
+  "version": "1.0.0",
+  "description": "GejalaKu adalah platform yang membantu individu mengenali gejala penyakit lebih awal melalui informasi kesehatan yang mudah dipahami, guna mendorong deteksi dini dan penanganan medis yang tepat.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DzakyFawwaz/gejalaku-app.git"
+  },
+  "keywords": [
+    "health",
+    "symptom"
+  ],
+  "author": "Team CC25-CF213",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DzakyFawwaz/gejalaku-app/issues"
+  },
+  "homepage": "https://github.com/DzakyFawwaz/gejalaku-app#readme"
+}
