@@ -1,0 +1,53 @@
+@keyframes full-slide-from-right {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes full-slide-to-left {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes move-out {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes move-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+::view-transition-old(root) {
+  animation-name: move-out;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation-name: move-in;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in-out;
+}
+
+.main-header {
+  /* ...kode lainnya disembunyikan... */
+
+  view-transition-name: main-header;
+}
+
+.main-footer {
+  view-transition-name: main-footer;
+}
+
+#dashboard-image {
+  background-image: url('../public/images/dashboard.png');
+}

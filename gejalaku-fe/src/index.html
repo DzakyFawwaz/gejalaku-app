@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>CeritaIn</title>
+    <title>GejalaKu</title>
 
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="favicon.png" />
@@ -18,47 +18,44 @@
     />
 
     <!-- Font Awesome 5.15.4 -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
-    <header>
-      <button id="skip-link" class="skip-link">Menuju konten utama</button>
+  <body class="bg-gray-50 flex flex-col min-h-screen">
 
-      <div class="header-content container">
-        <a class="brand-name__link" href="#/">
-          <img
-            class="brand-name__link__image"
-            src="images/logo.png"
-            alt="CeritaIn Logo"
-          />
-          <span class="brand-name__link__text">GejalaKu</span>
-        </a>
 
-        <nav id="navigation-drawer" class="navigation-drawer">
-          <ul id="navlist-main" class="navigation-drawer__navlist-main"></ul>
-          <ul id="navlist" class="navigation-drawer__navlist"></ul>
-        </nav>
 
-        <button id="drawer-button" class="drawer-button">☰</button>
-      </div>
+    <header class="main-header border-b border-gray-200 bg-white">
+      
+      <nav id="navigation-drawer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+        <ul id="navlist-main"></ul>
+        <button tabindex="1" id="skip-link" class="text-transparent focus:text-black w-fit px-2 py-1 skip-link">Menuju konten utama</button>
+        <ul id="navlist" class="flex items-center space-x-4"></ul>
+        
+      </nav>
+      <!-- <button id="drawer-button" class="drawer-button">☰</button> -->
     </header>
 
-    <main tabIndex="-1" id="main-content" class="main-content"></main>
 
-    <footer>
+
+    
+    
+    <main id="main-content" class="flex flex-col flex-grow"></main>
+
+    <footer
+    class="main-footer border-t border-gray-200 py-3 text-center text-gray-500 text-xs max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8"
+  >
+    GejalaKu provides informational content only. Always consult with medical
+    professionals.
+  </footer>
+  
+    <!-- <footer>
       <div class="container">
         <hr />
         <div class="footer-content">
@@ -66,13 +63,13 @@
             <img
               class="brand-name__link__image"
               src="images/logo.png"
-              alt="CeritaIn Logo"
+              alt="GejalaKu Logo"
             />
-            <span class="brand-name__link__text">CeritaIn</span>
+            <span class="brand-name__link__text">GejalaKu</span>
           </a>
-          <p class="copyright">&copy; 2025 CeritaIn. All rights reserved.</p>
+          <p class="copyright">&copy; 2025 GejalaKu. All rights reserved.</p>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>
