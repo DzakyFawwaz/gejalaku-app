@@ -1,0 +1,29 @@
+{
+  "name": "gejalaku-be",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "start:pm2": "pm2 start app.js --name hapi-app",
+    "restart:pm2": "pm2 restart hapi-app",
+    "stop:pm2": "pm2 stop hapi-app",
+    "delete:pm2": "pm2 delete hapi-app",
+    "logs:pm2": "pm2 logs hapi-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DzakyFawwaz/my-stories-app.git"
+  },
+  "author": "Team CC25-CF213",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DzakyFawwaz/my-stories-app/issues"
+  },
+  "homepage": "https://github.com/DzakyFawwaz/my-stories-app#readme",
+  "description": "",
+  "dependencies": {
+    "@hapi/hapi": "^21.4.0"
+  }
+}
