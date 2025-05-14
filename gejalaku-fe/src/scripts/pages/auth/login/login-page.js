@@ -60,10 +60,10 @@ export default class LoginPage {
     document.getElementById('login-form').addEventListener('submit', async (event) => {
       event.preventDefault();
 
-      const data = {
-        email: document.getElementById('email-input').value,
-        password: document.getElementById('password-input').value,
-      };
+      // const data = {
+      //   email: document.getElementById('email-input').value,
+      //   password: document.getElementById('password-input').value,
+      // };
       // await this.#presenter.getLogin(data);
     });
   }

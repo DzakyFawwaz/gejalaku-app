@@ -80,11 +80,11 @@ export default class RegisterPage {
     document.getElementById('register-form').addEventListener('submit', async (event) => {
       event.preventDefault();
 
-      const data = {
-        name: document.getElementById('name-input').value,
-        email: document.getElementById('email-input').value,
-        password: document.getElementById('password-input').value,
-      };
+      // const data = {
+      //   name: document.getElementById('name-input').value,
+      //   email: document.getElementById('email-input').value,
+      //   password: document.getElementById('password-input').value,
+      // };
       //   await this.#presenter.getRegistered(data);
     });
   }

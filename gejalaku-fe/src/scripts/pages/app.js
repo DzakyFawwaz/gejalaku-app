@@ -10,6 +10,7 @@ import { routes } from '../routes/routes';
 import {
   generateUnauthenticatedNavigationListTemplate,
   generateUnauthenticatedNavigationListMainTemplate,
+  generateAuthenticatedNavigationListTemplate,
 } from '../templates';
 
 export default class App {
@@ -62,7 +63,40 @@ export default class App {
     if (!isLogin) {
       navListMain.innerHTML = generateUnauthenticatedNavigationListMainTemplate();
       navList.innerHTML = generateUnauthenticatedNavigationListTemplate();
+
+      document.getElementById('navlist-logo').addEventListener('click', () => {
+        window.location.hash = '/';
+      });
+
       return;
+    }
+
+    const handleLogout = () => {
+      getLogout();
+      this.#setupNavigationList();
+    };
+
+    const handleLoginRegister = (event) => {
+      const target = event.target;
+      if (target.id === 'login-button') {
+        // Handle login button click
+        console.log('Login button clicked');
+      } else if (target.id === 'register-button') {
+        // Handle register button click
+        console.log('Register button clicked');
+      }
+    };
+
+    navList.innerHTML = generateAuthenticatedNavigationListTemplate();
+    const logoutButton = navList.querySelector('#logout-button');
+    const loginRegisterContainer = navList.querySelector('#login-register-container');
+
+    if (logoutButton) {
+      logoutButton.addEventListener('click', handleLogout);
+    }
+
+    if (loginRegisterContainer) {
+      loginRegisterContainer.addEventListener('click', handleLoginRegister);
     }
   }
 
