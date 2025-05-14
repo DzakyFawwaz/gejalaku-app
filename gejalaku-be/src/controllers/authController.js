@@ -22,10 +22,18 @@ const loginHandler = async (request, h) => {
 
   try {
     const user = await login(email, password);
+
+    const { providerData, stsTokenManager } = user;
+    const { uid, displayName, photoURL } = providerData[0];
     return h
       .response({
         message: "User logged in successfully",
-        user,
+        data: {
+          uid,
+          displayName,
+          photoURL,
+          accessToken: stsTokenManager.accessToken,
+        },
       })
       .code(200);
   } catch (error) {

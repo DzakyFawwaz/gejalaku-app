@@ -1,4 +1,10 @@
+import LoginPresenter from './login-presenter';
+import * as AuthApi from '../../../data/auth-api';
+import * as AuthModel from '../../../utils/auth';
+
 export default class LoginPage {
+  #presenter;
+
   async render() {
     return `
           <form id="login-form" class="mx-auto text-start min-w-md mt-16" action="#" method="POST">
@@ -53,6 +59,12 @@ export default class LoginPage {
   }
 
   async afterRender() {
+    this.#presenter = new LoginPresenter({
+      view: this,
+      model: AuthApi,
+      authModel: AuthModel,
+    });
+
     this.#setupForm();
   }
 
@@ -60,11 +72,11 @@ export default class LoginPage {
     document.getElementById('login-form').addEventListener('submit', async (event) => {
       event.preventDefault();
 
-      // const data = {
-      //   email: document.getElementById('email-input').value,
-      //   password: document.getElementById('password-input').value,
-      // };
-      // await this.#presenter.getLogin(data);
+      const data = {
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+      };
+      await this.#presenter.login(data);
     });
   }
 }
