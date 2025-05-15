@@ -1,3 +1,4 @@
+const handleFirebaseError = require("../helpers/auth");
 const { register, login } = require("../services/firebaseService");
 
 const registerHandler = async (request, h) => {
@@ -13,7 +14,7 @@ const registerHandler = async (request, h) => {
       })
       .code(201);
   } catch (error) {
-    return h.response({ error: error.message }).code(500);
+    return h.response({ error: handleFirebaseError(error) }).code(500);
   }
 };
 
@@ -37,7 +38,7 @@ const loginHandler = async (request, h) => {
       })
       .code(200);
   } catch (error) {
-    return h.response({ error: error.message }).code(500);
+    return h.response({ error: handleFirebaseError(error) }).code(500);
   }
 };
 

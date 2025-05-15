@@ -7,7 +7,7 @@ export default class LoginPage {
 
   async render() {
     return `
-          <form id="login-form" class="mx-auto text-start min-w-md mt-16" action="#" method="POST">
+          <form id="login-form" class="mx-auto text-start min-w-md mt-16 mb-2" action="#" method="POST">
               <label
                 for="email"
                 class="block mb-1 text-gray-900 font-semibold text-sm"
@@ -66,6 +66,18 @@ export default class LoginPage {
     });
 
     this.#setupForm();
+  }
+
+  showErrorMessage(message) {
+    const errorMessage = document.createElement('div');
+    errorMessage.textContent = message;
+    errorMessage.className =
+      'bg-red-50 border border-red-400 text-red-600 font-semibold text-sm p-4 rounded-xl z-50 mt-4';
+    document.getElementById('login-form').appendChild(errorMessage);
+
+    setTimeout(() => {
+      errorMessage.remove();
+    }, 3000);
   }
 
   #setupForm() {

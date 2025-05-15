@@ -1,0 +1,28 @@
+{
+  "name": "capstone-project",
+  "version": "1.0.0",
+  "description": "Team CC25-CF213",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start:fe & npm run start:be",
+    "start:fe": "cd gejalaku-fe && npm run start-dev",
+    "start:be": "cd gejalaku-be && npm run start-dev",
+    "build": "npm run build:fe && npm run build:be",
+    "build:fe": "cd gejalaku-fe && npm run build",
+    "build:be": "cd gejalaku-be && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DzakyFawwaz/gejalaku-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DzakyFawwaz/gejalaku-app/issues"
+  },
+  "homepage": "https://github.com/DzakyFawwaz/gejalaku-app#readme"
+}

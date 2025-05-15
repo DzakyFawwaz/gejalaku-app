@@ -14,19 +14,17 @@ export default class LoginPresenter {
       const response = await this.#model.login(username, password);
 
       if (!response.ok) {
-        console.error('showReportDetailAndMap: response:', response);
-        this.#view.populateReportDetailError(response.message);
+        this.#view.showErrorMessage('Login failed. Please check your username and password.');
         return;
       }
       this.#authModel.putAccessToken(response.data.accessToken);
-      window.location.href = '/';
+      this.#authModel.showSuccessMessage('Login successful!');
 
-      //   this.#view.populateReportDetailAndInitialMap(response.message, response.data);
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 1000);
     } catch (error) {
       console.error('showReportDetailAndMap: error:', error);
-      //   this.#view.populateReportDetailError(error.message);
-    } finally {
-      //   this.#view.hideReportDetailLoading();
     }
   }
 }

@@ -5,13 +5,14 @@
   "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
+    "start-dev": "nodemon app.js",
     "start": "node app.js",
     "start:pm2": "pm2 start app.js --name hapi-app",
     "restart:pm2": "pm2 restart hapi-app",
     "stop:pm2": "pm2 stop hapi-app",
     "delete:pm2": "pm2 delete hapi-app",
-    "logs:pm2": "pm2 logs hapi-app"
+    "logs:pm2": "pm2 logs hapi-app",
+    "build": "npm run build"
   },
   "repository": {
     "type": "git",

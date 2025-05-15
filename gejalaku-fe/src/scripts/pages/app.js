@@ -1,4 +1,4 @@
-import { getActiveRoute } from "../routes/url-parser";
+import { getActiveRoute } from '../routes/url-parser';
 // import {
 //   generateAuthenticatedNavigationListTemplate,
 //   generateMainNavigationListTemplate,
@@ -59,14 +59,14 @@ export default class App {
     const navListMain = this.#drawerNavigation.children.namedItem('navlist-main');
     const navList = this.#drawerNavigation.children.namedItem('navlist');
 
+    navListMain.innerHTML = generateUnauthenticatedNavigationListMainTemplate();
+    document.getElementById('navlist-logo').addEventListener('click', () => {
+      window.location.hash = '/';
+    });
+
     // User not log in
     if (!isLogin) {
-      navListMain.innerHTML = generateUnauthenticatedNavigationListMainTemplate();
       navList.innerHTML = generateUnauthenticatedNavigationListTemplate();
-
-      document.getElementById('navlist-logo').addEventListener('click', () => {
-        window.location.hash = '/';
-      });
 
       return;
     }
