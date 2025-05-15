@@ -20,7 +20,7 @@ Team CC25-CF213
    ```
 4. Start the development server:
    ```bash
-   npm start
+   npm start-dev
    ```
 
 ### Backend (gejalaku-be)
@@ -42,5 +42,5 @@ Team CC25-CF213
    - Add the required variables as specified in `.env.example`.
 5. Start the server:
    ```bash
-   npm run start
+   npm run start-dev
    ```
