@@ -5,6 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
+  output: {
+    publicPath: '/gejalaku-app/', // Replace 'gejalaku-app' with your repository name
+  },
   module: {
     rules: [
       {
