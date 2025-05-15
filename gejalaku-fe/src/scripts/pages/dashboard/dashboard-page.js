@@ -35,7 +35,7 @@ export default class DashboardPage {
           <div class="md:w-1/2">
             <div class="relative">
               <div class="w-64 h-64 md:w-80 md:h-80 mx-auto bg-blue-100 rounded-full flex items-center justify-center overflow-hidden">
-                <img id="dashboard-image" src="/images/dashboard.png" alt="Health Illustrations" class="object-cover" />
+                <img id="dashboard-image" src="images/dashboard.png" alt="Health Illustrations" class="object-cover" />
               </div>
               <div class="absolute -top-4 -right-2 bg-green-100 rounded-full p-4 flex items-center justify-center animate-pulse">
                 <i class="fas fa-shield-virus text-green-600 text-xl"></i>

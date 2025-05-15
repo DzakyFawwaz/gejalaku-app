@@ -14,7 +14,7 @@ export function generateAuthenticatedNavigationListTemplate() {
 export const generateUnauthenticatedNavigationListMainTemplate = () => {
   return `
     <div id="navlist-main" class="flex items-center space-x-3">
-      <img id="navlist-logo" src="/images/logo-with-text.png" alt="GejalaKu Logo" class="h-26">
+      <img id="navlist-logo" src="images/logo-with-text.png" alt="GejalaKu Logo" class="h-26">
     </div>
     `;
 };

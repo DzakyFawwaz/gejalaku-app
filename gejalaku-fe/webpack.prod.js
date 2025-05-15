@@ -26,6 +26,13 @@ module.exports = merge(common, {
           },
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i, // Add this rule for image files
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]', // Output images to 'images' folder
+        },
+      },
     ],
   },
   plugins: [new CleanWebpackPlugin(), new MiniCssExtractPlugin()],
