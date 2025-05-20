@@ -1,4 +1,4 @@
-export default class AnalyzeResultPage {
+export default class SummaryPage {
   async render() {
     return `
         <main class="max-w-xl mx-auto py-4 space-y-4">
@@ -112,16 +112,14 @@ export default class AnalyzeResultPage {
   }
 
   async afterRender() {
-    document.getElementById("print-button").addEventListener("click", () => {
+    document.getElementById('print-button').addEventListener('click', () => {
       window.print();
     });
-    document.getElementById("home-button").addEventListener("click", () => {
-      window.location.href = "home-page.html";
+    document.getElementById('home-button').addEventListener('click', () => {
+      window.location.href = 'home-page.html';
     });
-    document
-      .getElementById("check-symptom-button")
-      .addEventListener("click", () => {
-        window.location.href = "check-symptom-page.html";
-      });
+    document.getElementById('check-symptom-button').addEventListener('click', () => {
+      window.location.href = 'check-symptom-page.html';
+    });
   }
 }

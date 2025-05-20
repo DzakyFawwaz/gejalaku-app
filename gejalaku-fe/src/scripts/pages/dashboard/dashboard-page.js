@@ -12,12 +12,13 @@ export default class DashboardPage {
               GejalaKu menggunakan kecerdasan buatan untuk memahami gejala Anda dan membantu memberikan arahan untuk langkah selanjutnya.
             </p>
             <div class="flex flex-col sm:flex-row space- sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-              <button
+              <a
+                href="#/check-symptom"
                 id="cek-gejala-btn"
                 class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition transform hover:-translate-y-1 shadow-md"
               >
                 <i class="fas fa-search mr-2"></i> Cek Gejala Sekarang
-              </button>
+              </a>
               <a
                 href="#/about"
                 class="border border-blue-600 text-blue-600 font-medium px-6 py-3 rounded-md hover:bg-blue-50 transition"

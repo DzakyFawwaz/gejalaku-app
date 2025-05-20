@@ -1,4 +1,4 @@
-export default class AnalyzeSymptopPage {
+export default class AnalyzingSymptomPage {
   async render() {
     return `
         <main class="text-center px-4">
@@ -51,7 +51,7 @@ export default class AnalyzeSymptopPage {
 
   afterRender() {
     setTimeout(() => {
-      window.location.href = "analyze-result-page.html";
+      window.location.href = 'analyze-result-page.html';
     }, 3000);
   }
 }
