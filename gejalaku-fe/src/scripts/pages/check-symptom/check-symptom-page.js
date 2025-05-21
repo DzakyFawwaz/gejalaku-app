@@ -163,7 +163,7 @@ export default class CheckSymptomPage {
 
     // Button navigation
     document.getElementById('check-symptom-button').addEventListener('click', () => {
-      window.location.href = 'analyze-symptom-page.html';
+      window.location.hash = '/analyzing';
     });
   }
 }

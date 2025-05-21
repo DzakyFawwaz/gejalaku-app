@@ -1,7 +1,7 @@
 export default class AnalyzingSymptomPage {
   async render() {
     return `
-        <main class="text-center px-4">
+        <main class="mx-auto text-center min-w-md flex-grow flex flex-col justify-center">
             <div
                 class="mx-auto mb-6 w-24 h-24 rounded-full bg-[#d6e4ff] flex items-center justify-center"
             >
@@ -42,7 +42,7 @@ export default class AnalyzingSymptomPage {
             </p>
             <p class="text-[#4b5563] text-sm mb-1">Preparing your results...</p>
             <p class="text-[#4b5563] text-sm mb-6">This will only take a moment</p>
-            <a href="analyze-result-page.html" class="text-[#6b7280] text-xs"
+            <a href="#/summary" class="text-[#6b7280] text-xs"
                 >Tap to speed up (demo only)</a
             >
         </main>
@@ -51,7 +51,7 @@ export default class AnalyzingSymptomPage {
 
   afterRender() {
     setTimeout(() => {
-      window.location.href = 'analyze-result-page.html';
+      //   window.location.hash = '/summary';
     }, 3000);
   }
 }

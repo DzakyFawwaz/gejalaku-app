@@ -1,21 +1,18 @@
 export default class SummaryPresenter {
-  constructor(view) {
+  constructor({ view }) {
     this.view = view;
-    this.view.setPresenter(this);
-
-    this.summaryService = new SummaryService();
   }
 
-  async loadData() {
-    try {
-      const summaryData = await this.summaryService.getSummaryResult();
+  // async loadData() {
+  //   try {
+  //     const summaryData = await this.summaryService.getSummaryResult();
 
-      this.view.updateSummaryData(summaryData);
-    } catch (error) {
-      this.view.showError('Failed to load summary results. Please try again.');
-      console.error('Error loading summary data:', error);
-    }
-  }
+  //     this.view.updateSummaryData(summaryData);
+  //   } catch (error) {
+  //     this.view.showError('Failed to load summary results. Please try again.');
+  //     console.error('Error loading summary data:', error);
+  //   }
+  // }
 
   handlePrint() {
     try {
@@ -27,25 +24,19 @@ export default class SummaryPresenter {
   }
 
   navigateToHome() {
-    this.navigateTo('home-page.html');
+    this.navigateTo('/');
   }
 
   navigateToCheckSymptom() {
-    this.navigateTo('check-symptom-page.html');
+    this.navigateTo('/check-symptom');
   }
 
   navigateTo(url) {
     try {
-      window.location.href = url;
+      window.location.hash = url;
     } catch (error) {
       this.view.showError(`Failed to navigate to ${url}.`);
       console.error('Navigation error:', error);
     }
-  }
-}
-
-class SummaryService {
-  async getSummaryResult() {
-    //...
   }
 }
