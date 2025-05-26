@@ -1,12 +1,11 @@
-"use strict";
-const Hapi = require("@hapi/hapi");
-const { initializeFirebase } = require("./src/services/firebaseService");
-const authRoutes = require("./src/routes/authRoutes");
+import Hapi from "@hapi/hapi";
+import { initializeFirebase } from "./src/services/firebaseService.js";
+import authRoutes from "./src/routes/authRoutes.js";
 
 const init = async () => {
   const server = Hapi.server({
-    port: 8888,
-    host: "localhost",
+    port: process.env.PORT || 8888,
+    host: "0.0.0.0",
     routes: {
       cors: {
         origin: ["*"], // Allow all origins
