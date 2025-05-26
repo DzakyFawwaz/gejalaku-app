@@ -21,7 +21,7 @@ export default class LoginPresenter {
       this.#authModel.showSuccessMessage('Login successful!');
 
       setTimeout(() => {
-        window.location.href = '/';
+        window.location.hash = '/';
       }, 1000);
     } catch (error) {
       console.error('showReportDetailAndMap: error:', error);

@@ -5,7 +5,7 @@ import authRoutes from "./src/routes/authRoutes.js";
 const init = async () => {
   const server = Hapi.server({
     port: process.env.PORT || 8888,
-    host: "0.0.0.0",
+    host: "https://gejalaku-be.vercel.app/",
     routes: {
       cors: {
         origin: ["*"], // Allow all origins
