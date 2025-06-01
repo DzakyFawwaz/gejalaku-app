@@ -1,0 +1,166 @@
+[
+  {
+    "Disease":"Reaksi obat",
+    "Description":"Reaksi obat yang merugikan (ADR) adalah cedera yang disebabkan oleh minum obat. ADR dapat terjadi setelah dosis tunggal atau pemberian obat yang berkepanjangan atau hasil dari kombinasi dua atau lebih obat."
+  },
+  {
+    "Disease":"Malaria",
+    "Description":"Penyakit menular yang disebabkan oleh parasit protozoa dari keluarga Plasmodium yang dapat ditularkan oleh gigitan nyamuk Anopheles atau oleh jarum atau transfusi yang terkontaminasi. Falciparum malaria adalah tipe yang paling mematikan."
+  },
+  {
+    "Disease":"Alergi",
+    "Description":"Alergi adalah respons sistem kekebalan tubuh terhadap zat asing yang biasanya tidak berbahaya bagi tubuh Anda. Mereka dapat mencakup makanan tertentu, serbuk sari, atau bulu hewan peliharaan. Tugas sistem kekebalan tubuh Anda adalah membuat Anda tetap sehat dengan melawan patogen berbahaya."
+  },
+  {
+    "Disease":"Hipotiroidisme",
+    "Description":"Hipotiroidisme, juga disebut tiroid yang kurang aktif atau tiroid rendah, adalah kelainan sistem endokrin di mana kelenjar tiroid tidak menghasilkan cukup hormon tiroid."
+  },
+  {
+    "Disease":"Psoriasis",
+    "Description":"Psoriasis adalah kelainan kulit umum yang membentuk tambalan tebal, merah, bergelombang yang ditutupi dengan sisik keperakan. Mereka dapat muncul di mana saja, tetapi sebagian besar muncul di kulit kepala, siku, lutut, dan punggung bawah. Psoriasis tidak dapat diturunkan dari orang ke orang ke orang. Terkadang terjadi pada anggota keluarga yang sama."
+  },
+  {
+    "Disease":"GERD (refluks asam lambung)",
+    "Description":"Penyakit refluks gastroesofagus, atau GERD, adalah kelainan pencernaan yang mempengaruhi sfingter esofagus (LES) yang lebih rendah, cincin otot antara kerongkongan dan lambung. Banyak orang, termasuk wanita hamil, menderita mulas atau gangguan pencernaan yang disebabkan oleh GERD."
+  },
+  {
+    "Disease":"Kolestasis kronis",
+    "Description":"Penyakit kolestatik kronis, apakah terjadi pada masa bayi, masa kanak -kanak atau dewasa, ditandai dengan transportasi asam empedu yang rusak dari hati ke usus, yang disebabkan oleh kerusakan primer pada epitel empedu dalam banyak kasus dalam kebanyakan kasus"
+  },
+  {
+    "Disease":"Hepatitis A",
+    "Description":"Hepatitis A adalah infeksi hati yang sangat menular yang disebabkan oleh virus hepatitis A. Virus ini adalah salah satu dari beberapa jenis virus hepatitis yang menyebabkan peradangan dan mempengaruhi kemampuan hati Anda untuk berfungsi."
+  },
+  {
+    "Disease":"Osteoartritis",
+    "Description":"Osteoartritis adalah bentuk artritis yang paling umum, mempengaruhi jutaan orang di seluruh dunia. Ini terjadi ketika tulang rawan pelindung yang bantalan ujung tulang Anda lelah seiring waktu."
+  },
+  {
+    "Disease":"Vertigo posisi paroksismal",
+    "Description":"Vertigo posisi paroksismal jinak (BPPV) adalah salah satu penyebab vertigo yang paling umum - sensasi tiba -tiba yang Anda berputar atau bagian dalam kepala Anda berputar. Vertigo posisi paroksismal jinak menyebabkan episode singkat pusing ringan hingga intens."
+  },
+  {
+    "Disease":"Hipoglikemia",
+    "Description":"Hipoglikemia adalah suatu kondisi di mana kadar gula darah (glukosa) Anda lebih rendah dari biasanya. Glukosa adalah sumber energi utama tubuh Anda. Hipoglikemia sering terkait dengan pengobatan diabetes. Tetapi obat -obatan lain dan berbagai kondisi - banyak yang jarang - dapat menyebabkan gula darah rendah pada orang yang tidak menderita diabetes."
+  },
+  {
+    "Disease":"Jerawat",
+    "Description":"Jerawat vulgaris adalah pembentukan komedon, papula, pustula, nodul, dan\/atau kista sebagai akibat dari obstruksi dan peradangan unit pilosebaceous (folikel rambut dan kelenjar sebaceous yang menyertainya). Jerawat berkembang di wajah dan batang atas. Ini paling sering mempengaruhi remaja."
+  },
+  {
+    "Disease":"Diabetes",
+    "Description":"Diabetes adalah penyakit yang terjadi ketika glukosa darah Anda, juga disebut gula darah, terlalu tinggi. Glukosa darah adalah sumber energi utama Anda dan berasal dari makanan yang Anda makan. Insulin, hormon yang dibuat oleh pankreas, membantu glukosa dari makanan masuk ke sel Anda untuk digunakan untuk energi."
+  },
+  {
+    "Disease":"Impetigo",
+    "Description":"Impetigo (im-puh-tie-go) adalah infeksi kulit yang umum dan sangat menular yang terutama mempengaruhi bayi dan anak-anak. Impetigo biasanya muncul sebagai luka merah di wajah, terutama di sekitar hidung dan mulut anak, dan di tangan dan kaki. Luka meledak dan mengembangkan kerak berwarna madu."
+  },
+  {
+    "Disease":"Hipertensi",
+    "Description":"Hipertensi (HTN atau HT), juga dikenal sebagai tekanan darah tinggi (HBP), adalah kondisi medis jangka panjang di mana tekanan darah di arteri terus meningkat. Tekanan darah tinggi biasanya tidak menyebabkan gejala."
+  },
+  {
+    "Disease":"Tukak lambung",
+    "Description":"Peptic Ulcer Disease (PUD) adalah istirahat di lapisan dalam lambung, bagian pertama dari usus kecil, atau kadang -kadang kerongkongan yang lebih rendah. Ulkus di perut disebut ulkus lambung, sedangkan satu di bagian pertama usus adalah ulkus duodenum."
+  },
+  {
+    "Disease":"Wasir tipe dimorfik",
+    "Description":"Wasir, juga wasir yang dieja, adalah struktur pembuluh darah di saluran anal. Dalam ... nama lain, wasir, tumpukan, penyakit wasir."
+  },
+  {
+    "Disease":"Flu biasa",
+    "Description":"Pilek yang umum adalah infeksi virus hidung dan tenggorokan Anda (saluran pernapasan atas). Biasanya tidak berbahaya, meskipun mungkin tidak terasa seperti itu. Banyak jenis virus dapat menyebabkan flu biasa."
+  },
+  {
+    "Disease":"Cacar air",
+    "Description":"Cacar air adalah penyakit yang sangat menular yang disebabkan oleh virus varicella-zoster (VZV). Ini dapat menyebabkan ruam yang gatal, seperti blister. Ruam pertama kali muncul di dada, punggung, dan wajah, dan kemudian menyebar ke seluruh tubuh, menyebabkan antara 250 dan 500 lepuh gatal."
+  },
+  {
+    "Disease":"Spondilosis servikal",
+    "Description":"Spondylosis serviks adalah istilah umum untuk keausan dan air mata terkait usia yang mempengaruhi disk tulang belakang di leher Anda. Ketika disk dehidrasi dan menyusut, tanda -tanda osteoartritis berkembang, termasuk proyeksi tulang di sepanjang tepi tulang (taji tulang)."
+  },
+  {
+    "Disease":"Hipertiroidisme",
+    "Description":"Hipertiroidisme (tiroid yang terlalu aktif) terjadi ketika kelenjar tiroid Anda menghasilkan terlalu banyak hormon tiroksin. Hipertiroidisme dapat mempercepat metabolisme tubuh Anda, menyebabkan penurunan berat badan yang tidak disengaja dan detak jantung yang cepat atau tidak teratur."
+  },
+  {
+    "Disease":"Infeksi saluran kemih",
+    "Description":"Infeksi saluran kemih: infeksi ginjal, ureter, kandung kemih, atau uretra. Uti yang disingkat. Tidak semua orang dengan ISK memiliki gejala, tetapi gejala umum termasuk dorongan yang sering untuk buang air kecil dan nyeri atau terbakar saat buang air kecil."
+  },
+  {
+    "Disease":"Varises",
+    "Description":"Vena yang telah membesar dan bengkok, sering muncul sebagai pembuluh darah biru yang menggembung yang terlihat jelas melalui kulit. Varises varises paling umum pada orang dewasa yang lebih tua, terutama wanita, dan terjadi terutama pada kaki."
+  },
+  {
+    "Disease":"AIDS",
+    "Description":"Acquired Immunodeficiency Syndrome (AIDS) adalah kondisi kronis yang berpotensi mengancam jiwa yang disebabkan oleh virus imunodefisiensi manusia (HIV). Dengan merusak sistem kekebalan tubuh Anda, HIV mengganggu kemampuan tubuh Anda untuk melawan infeksi dan penyakit."
+  },
+  {
+    "Disease":"Kelumpuhan (perdarahan otak)",
+    "Description":"Perdarahan intracerebral (ICH) adalah ketika darah tiba -tiba masuk ke jaringan otak, menyebabkan kerusakan pada otak Anda. Gejala biasanya muncul tiba -tiba selama ICH. Mereka termasuk sakit kepala, kelemahan, kebingungan, dan kelumpuhan, terutama di satu sisi tubuh Anda."
+  },
+  {
+    "Disease":"Tifus",
+    "Description":"Penyakit akut yang ditandai oleh demam yang disebabkan oleh infeksi dengan bakteri Salmonella typhi. Demam tifoid mengalami onset berbahaya, dengan demam, sakit kepala, sembelit, malaise, kedinginan, dan nyeri otot. Diare tidak umum, dan muntah biasanya tidak parah."
+  },
+  {
+    "Disease":"Hepatitis B",
+    "Description":"Hepatitis B adalah infeksi hati Anda. Ini dapat menyebabkan jaringan parut organ, gagal hati, dan kanker. Ini bisa berakibat fatal jika tidak diobati. Ini menyebar ketika orang bersentuhan dengan darah, luka terbuka, atau cairan tubuh seseorang yang memiliki virus hepatitis B."
+  },
+  {
+    "Disease":"Infeksi jamur",
+    "Description":"Pada manusia, infeksi jamur terjadi ketika jamur yang menyerang mengambil alih area tubuh dan terlalu banyak untuk ditangani oleh sistem kekebalan tubuh. Jamur dapat hidup di udara, tanah, air, dan tanaman. Ada juga beberapa jamur yang hidup secara alami di dalam tubuh manusia. Seperti banyak mikroba, ada jamur yang bermanfaat dan jamur yang berbahaya."
+  },
+  {
+    "Disease":"Hepatitis C",
+    "Description":"Peradangan hati karena virus hepatitis C (HCV), yang biasanya menyebar melalui transfusi darah (jarang), hemodialisis, dan tongkat jarum. Kerusakan yang dilakukan hepatitis C pada hati dapat menyebabkan sirosis dan komplikasinya serta kanker."
+  },
+  {
+    "Disease":"Migrain",
+    "Description":"Migrain dapat menyebabkan nyeri berdenyut parah atau sensasi berdenyut, biasanya di satu sisi kepala. Sering disertai mual, muntah, dan sensitivitas ekstrem terhadap cahaya dan suara. Serangan migrain dapat bertahan selama berjam -jam, dan rasa sakitnya bisa sangat parah sehingga mengganggu aktivitas sehari -hari Anda."
+  },
+  {
+    "Disease":"Asma bronkial",
+    "Description":"Asma bronkial adalah kondisi medis yang menyebabkan jalur jalan napas paru -paru membengkak dan sempit. Karena pembengkakan ini, jalur udara menghasilkan kelebihan lendir membuatnya sulit untuk bernafas, yang mengakibatkan batuk, napas pendek, dan mengi. Penyakit ini kronis dan mengganggu kerja harian."
+  },
+  {
+    "Disease":"Hepatitis alkoholik",
+    "Description":"Hepatitis alkoholik adalah kondisi yang sakit dan radang hati yang disebabkan oleh konsumsi alkohol berat selama periode waktu yang lama. Ini juga diperburuk dengan pesta minuman keras dan penggunaan alkohol yang berkelanjutan. Jika Anda mengembangkan kondisi ini, Anda harus berhenti minum alkohol"
+  },
+  {
+    "Disease":"Penyakit kuning",
+    "Description":"Pewarnaan kuning kulit dan sclera (putih mata) dengan kadar darah pigmen empedu yang tidak normal. Kunnya meluas ke jaringan lain dan cairan tubuh. Yaundice pernah disebut \"Morbus Regius\" (Penyakit Regal) dengan keyakinan bahwa hanya sentuhan seorang raja yang bisa menyembuhkannya"
+  },
+  {
+    "Disease":"Hepatitis E",
+    "Description":"Suatu bentuk peradangan hati yang jarang disebabkan oleh infeksi dengan virus hepatitis E (HEV). Ini ditransmisikan melalui makanan atau minuman yang ditangani oleh orang yang terinfeksi atau melalui pasokan air yang terinfeksi di daerah -daerah di mana tinja dapat masuk ke dalam air. Hepatitis E tidak menyebabkan penyakit hati kronis."
+  },
+  {
+    "Disease":"Demam berdarah (Dengue)",
+    "Description":"Penyakit menular akut yang disebabkan oleh flavivirus (virus dengue spesies dari genus flavivirus), ditularkan oleh nyamuk Aedes, dan ditandai dengan sakit kepala, nyeri sendi yang parah, dan ruam. - Disebut juga demam breakbone, demam berdarah."
+  },
+  {
+    "Disease":"Hepatitis D",
+    "Description":"Hepatitis D, juga dikenal sebagai virus hepatitis delta, adalah infeksi yang menyebabkan hati menjadi meradang. Pembengkakan ini dapat mengganggu fungsi hati dan menyebabkan masalah hati jangka panjang, termasuk jaringan parut hati dan kanker. Kondisi ini disebabkan oleh virus hepatitis D (HDV)."
+  },
+  {
+    "Disease":"Serangan jantung",
+    "Description":"Kematian otot jantung karena kehilangan suplai darah. Hilangnya suplai darah biasanya disebabkan oleh penyumbatan lengkap arteri koroner, salah satu arteri yang memasok darah ke otot jantung."
+  },
+  {
+    "Disease":"Pneumonia",
+    "Description":"Pneumonia adalah infeksi pada satu atau kedua paru -paru. Bakteri, virus, dan jamur menyebabkannya. Infeksi menyebabkan peradangan di kantung udara di paru -paru Anda, yang disebut alveoli. Alveoli mengisi dengan cairan atau nanah, membuatnya sulit untuk bernafas."
+  },
+  {
+    "Disease":"Arthritis",
+    "Description":"Arthritis adalah pembengkakan dan kelembutan satu atau lebih sendi Anda. Gejala utama artritis adalah nyeri sendi dan kekakuan, yang biasanya memburuk seiring bertambahnya usia. Jenis artritis yang paling umum adalah osteoartritis dan rheumatoid arthritis."
+  },
+  {
+    "Disease":"Gastroenteritis",
+    "Description":"Gastroenteritis adalah peradangan saluran pencernaan, terutama lambung, dan usus besar dan kecil. Gastroenteritis virus dan bakteri adalah infeksi usus yang terkait dengan gejala diare, kram perut, mual, dan muntah."
+  },
+  {
+    "Disease":"Tuberkulosis",
+    "Description":"Tuberkulosis (TB) adalah penyakit menular yang biasanya disebabkan oleh bakteri Mycobacterium tuberculosis (MTB). Tuberkulosis umumnya mempengaruhi paru -paru, tetapi juga dapat mempengaruhi bagian tubuh lainnya. Sebagian besar infeksi tidak menunjukkan gejala, dalam hal ini dikenal sebagai tuberkulosis laten."
+  }
+]

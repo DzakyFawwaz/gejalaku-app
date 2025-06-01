@@ -1,0 +1,279 @@
+disease,drug
+GERD (refluks asam lambung),omeprazole
+GERD (refluks asam lambung),pantoprazole
+GERD (refluks asam lambung),ranitidine
+GERD (refluks asam lambung),famotidine
+GERD (refluks asam lambung),lansoprazole
+GERD (refluks asam lambung),esomeprazole
+GERD (refluks asam lambung),rabeprazole
+GERD (refluks asam lambung),sucralfate
+GERD (refluks asam lambung),dexlansoprazole
+GERD (refluks asam lambung),omeprazole / sodium bicarbonate
+Jerawat,doxycycline
+Jerawat,spironolactone
+Jerawat,minocycline
+Jerawat,clindamycin
+Jerawat,tretinoin
+Jerawat,isotretinoin
+Jerawat,benzoyl peroxide
+Jerawat,adapalene
+Jerawat,tetracycline
+Jerawat,cephalexin
+Jerawat,sulfamethoxazole / trimethoprim
+Infeksi saluran kemih,ciprofloxacin
+Infeksi saluran kemih,nitrofurantoin
+Infeksi saluran kemih,sulfamethoxazole / trimethoprim
+Infeksi saluran kemih,amoxicillin
+Infeksi saluran kemih,doxycycline
+Infeksi saluran kemih,levofloxacin
+Infeksi saluran kemih,ceftriaxone
+Infeksi saluran kemih,amoxicillin / clavulanate
+Infeksi saluran kemih,cefuroxime
+Infeksi saluran kemih,trimethoprim
+Infeksi saluran kemih,methenamine
+Infeksi saluran kemih,ampicillin
+AIDS,dronabinol
+AIDS,megestrol
+AIDS,somatropin
+Hepatitis alkoholik,propylthiouracil
+Hepatitis alkoholik,oxandrolone
+Alergi,diphenhydramine
+Alergi,prednisone
+Alergi,loratadine
+Alergi,epinephrine
+Alergi,chlorpheniramine
+Alergi,promethazine
+Alergi,triamcinolone
+Alergi,cyproheptadine
+Reaksi obat,epoetin alfa
+Arthritis,methotrexate
+Arthritis,prednisone
+Arthritis,meloxicam
+Arthritis,hydroxychloroquine
+Arthritis,sulfasalazine
+Arthritis,leflunomide
+Arthritis,diclofenac
+Arthritis,naproxen
+Arthritis,celecoxib
+Arthritis,acetaminophen / hydrocodone
+Arthritis,ibuprofen
+Osteoartritis,meloxicam
+Osteoartritis,diclofenac
+Osteoartritis,naproxen
+Osteoartritis,ibuprofen
+Osteoartritis,celecoxib
+Osteoartritis,chondroitin / glucosamine
+Osteoartritis,etodolac
+Osteoartritis,prednisone
+Osteoartritis,aspirin
+Osteoartritis,nabumetone
+Osteoartritis,duloxetine
+Asma bronkial,montelukast
+Asma bronkial,prednisone
+Asma bronkial,ipratropium
+Asma bronkial,flunisolide
+Asma bronkial,methylprednisolone
+Asma bronkial,dexamethasone
+Asma bronkial,formoterol / mometasone
+Asma bronkial,triamcinolone
+Asma bronkial,fluticasone / vilanterol
+Asma bronkial,levalbuterol
+Asma bronkial,ciclesonide
+Vertigo posisi paroksismal,meclizine
+Vertigo posisi paroksismal,promethazine
+Migrain,sumatriptan
+Migrain,rizatriptan
+Migrain,gabapentin
+Migrain,aspirin / butalbital / caffeine
+Migrain,cyclobenzaprine
+Migrain,diclofenac
+Migrain,naratriptan
+Migrain,almotriptan
+Migrain,zolmitriptan
+Migrain,eletriptan
+Kolestasis kronis,ursodiol
+Kolestasis kronis,colchicine
+Kolestasis kronis,azathioprine
+Kolestasis kronis,obeticholic acid
+Pneumonia,levofloxacin
+Pneumonia,clarithromycin
+Pneumonia,ceftriaxone
+Pneumonia,azithromycin
+Pneumonia,doxycycline
+Pneumonia,amoxicillin
+Pneumonia,ciprofloxacin
+Pneumonia,clindamycin
+Pneumonia,cefdinir
+Pneumonia,amoxicillin / clavulanate
+Pneumonia,sulfamethoxazole / trimethoprim
+Pneumonia,cefotaxime
+Pneumonia,metronidazole
+Pneumonia,moxifloxacin
+Pneumonia,cefuroxime
+Cacar air,acyclovir
+Cacar air,valacyclovir
+Cacar air,varicella zoster immune globulin
+Cacar air,immune globulin intramuscular
+Cacar air,foscarnet
+Penyakit kuning,phenobarbital
+Hepatitis B,entecavir
+Hepatitis B,tenofovir
+Hepatitis B,lamivudine
+Hepatitis B,adefovir
+Hepatitis B,tenofovir alafenamide
+Hepatitis B,interferon alfa-2b
+Hepatitis B,peginterferon alfa-2a
+Hepatitis B,peginterferon alfa-2b
+Hepatitis C,ribavirin
+Hepatitis C,ledipasvir / sofosbuvir
+Hepatitis C,sofosbuvir
+Hepatitis C,sofosbuvir / velpatasvir
+Hepatitis C,peginterferon alfa-2a
+Hepatitis C,dasabuvir / ombitasvir / paritaprevir / ritonavir
+Hepatitis C,elbasvir / grazoprevir
+Hepatitis C,interferon alfa-2b
+Hepatitis C,peginterferon alfa-2b
+Hepatitis C,glecaprevir / pibrentasvir
+Hepatitis C,sofosbuvir / velpatasvir / voxilaprevir
+Flu biasa,diphenhydramine
+Flu biasa,chlorpheniramine
+Flu biasa,acetaminophen / chlorpheniramine / phenylephrine
+Flu biasa,pseudoephedrine / triprolidine
+Reaksi obat,lubiprostone
+Reaksi obat,methylnaltrexone
+Reaksi obat,naloxegol
+Demam berdarah (Dengue),acetaminophen
+Diabetes,metformin
+Diabetes,glipizide
+Diabetes,glimepiride
+Diabetes,pioglitazone
+Diabetes,liraglutide
+Diabetes,sitagliptin
+Diabetes,metformin / sitagliptin
+Diabetes,insulin degludec
+Diabetes,insulin aspart / insulin degludec
+Diabetes,insulin glargine
+Diabetes,insulin lispro
+Diabetes,insulin aspart
+Diabetes,insulin regular
+Diabetes,insulin glulisine
+Diabetes,metformin
+Reaksi obat,pyridoxine
+Hipertensi,lisinopril
+Hipertensi,amlodipine
+Hipertensi,losartan
+Hipertensi,hydrochlorothiazide
+Hipertensi,metoprolol
+Hipertensi,atenolol
+Hipertensi,carvedilol
+Hipertensi,furosemide
+Hipertensi,hydrochlorothiazide / lisinopril
+Hipertensi,clonidine
+Hipertensi,enalapril
+Hipertensi,valsartan
+Psoriasis,clobetasol
+Psoriasis,methotrexate
+Psoriasis,triamcinolone
+Psoriasis,fluocinonide
+Psoriasis,calcipotriene
+Psoriasis,mometasone
+Psoriasis,desonide
+Psoriasis,prednisone
+Psoriasis,acitretin
+Psoriasis,cyclosporine
+Psoriasis,hydrocortisone
+Psoriasis,ustekinumab
+Psoriasis,adalimumab
+Psoriasis,betamethasone / calcipotriene
+Infeksi jamur,fluconazole
+Gastroenteritis,ondansetron
+Gastroenteritis,doxycycline
+Gastroenteritis,ceftriaxone
+Gastroenteritis,ampicillin
+Gastroenteritis,rotavirus vaccine
+Diabetes,insulin isophane
+Diabetes,insulin regular
+Diabetes,insulin isophane / insulin regular
+Serangan jantung,aspirin
+Serangan jantung,clopidogrel
+Serangan jantung,metoprolol
+Serangan jantung,lisinopril
+Serangan jantung,nitroglycerin
+Serangan jantung,ramipril
+Serangan jantung,warfarin
+Serangan jantung,atenolol
+Serangan jantung,enoxaparin
+Wasir tipe dimorfik,hydrocortisone
+Wasir tipe dimorfik,lidocaine
+Wasir tipe dimorfik,hydrocortisone / pramoxine
+Wasir tipe dimorfik,phenylephrine
+Wasir tipe dimorfik,dibucaine
+Wasir tipe dimorfik,hydrocortisone / lidocaine
+Wasir tipe dimorfik,pramoxine
+Hepatitis A,immune globulin intramuscular
+Hipertiroidisme,methimazole
+Hipertiroidisme,propylthiouracil
+Hipertiroidisme,potassium iodide
+Hipertiroidisme,iodine / potassium iodide
+Hipertiroidisme,sodium iodide-i-131
+Hipoglikemia,glucagon
+Hipoglikemia,diazoxide
+Hipotiroidisme,levothyroxine
+Hipotiroidisme,thyroid desiccated
+Hipotiroidisme,liothyronine
+Hipotiroidisme,liotrix
+Impetigo,mupirocin
+Impetigo,cefadroxil
+Impetigo,cefuroxime
+Impetigo,retapamulin
+Impetigo,sulconazole
+Impetigo,ozenoxacin
+Impetigo,ammoniated mercury
+Malaria,artemether / lumefantrine
+Malaria,mefloquine
+Malaria,doxycycline
+Malaria,chloroquine
+Malaria,hydroxychloroquine
+Malaria,atovaquone / proguanil
+Malaria,clindamycin
+Malaria,primaquine
+Malaria,atovaquone
+Spondilosis servikal,ibuprofen
+Spondilosis servikal,naproxen
+Spondilosis servikal,acetaminophen
+Tukak lambung,pantoprazole
+Tukak lambung,famotidine
+Tukak lambung,glycopyrrolate
+Tukak lambung,chlordiazepoxide / clidinium
+Tukak lambung,aluminum hydroxide
+Tukak lambung,methscopolamine
+Tukak lambung,propantheline
+Tukak lambung,belladonna
+Tukak lambung,clidinium
+Tuberkulosis,dexamethasone
+Arthritis,diclofenac
+Arthritis,celecoxib
+Arthritis,aspirin
+Arthritis,adalimumab
+Arthritis,etanercept
+Arthritis,golimumab
+Tuberkulosis,isoniazid / pyrazinamide / rifampin
+Tuberkulosis,ethambutol
+Tuberkulosis,isoniazid
+Tuberkulosis,rifampin
+Tuberkulosis,pyrazinamide
+Tuberkulosis,isoniazid / rifampin
+Tuberkulosis,levofloxacin
+Tuberkulosis,moxifloxacin
+Tuberkulosis,ciprofloxacin
+Tuberkulosis,streptomycin
+Tuberkulosis,amikacin
+Tifus,ciprofloxacin
+Tifus,ceftriaxone
+Tifus,azithromycin
+Tifus,ampicillin
+Varises,polidocanol
+Varises,sodium tetradecyl sulfate
+Hepatitis D,Obat spesifik untuk Hepatitis D tidak tersedia di dataset. Disarankan untuk konsultasi dengan dokter spesialis hati.
+Kelumpuhan (perdarahan otak),Paralysis akibat brain hemorrhage memerlukan penanganan medis kompleks. Segera konsultasikan ke dokter saraf.
+Hepatitis E,immune globulin intramuscular

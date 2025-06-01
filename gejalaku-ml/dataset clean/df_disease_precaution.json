@@ -1,0 +1,289 @@
+[
+  {
+    "Disease":"Reaksi obat",
+    "Precaution_1":"Hentikan iritasi",
+    "Precaution_2":"Konsultasikan dengan rumah sakit terdekat",
+    "Precaution_3":"berhenti minum obat",
+    "Precaution_4":"menindaklanjuti"
+  },
+  {
+    "Disease":"Malaria",
+    "Precaution_1":"Konsultasikan dengan rumah sakit terdekat",
+    "Precaution_2":"Hindari makanan berminyak",
+    "Precaution_3":"Hindari Makanan Non Veget",
+    "Precaution_4":"Jauhkan nyamuk"
+  },
+  {
+    "Disease":"Alergi",
+    "Precaution_1":"Terapkan Calamine",
+    "Precaution_2":"Area penutup dengan perban",
+    "Precaution_3":null,
+    "Precaution_4":"Gunakan es untuk mengompres gatal"
+  },
+  {
+    "Disease":"Hipotiroidisme",
+    "Precaution_1":"mengurangi stres",
+    "Precaution_2":"latihan",
+    "Precaution_3":"makan sehat",
+    "Precaution_4":"tidur nyenyak"
+  },
+  {
+    "Disease":"Psoriasis",
+    "Precaution_1":"Cuci tangan dengan air sabun hangat",
+    "Precaution_2":"Hentikan Pendarahan Menggunakan Tekanan",
+    "Precaution_3":"Konsultasikan dengan dokter",
+    "Precaution_4":"mandi garam"
+  },
+  {
+    "Disease":"GERD (refluks asam lambung)",
+    "Precaution_1":"Hindari makanan pedas berlemak",
+    "Precaution_2":"Hindari berbaring setelah makan",
+    "Precaution_3":"mempertahankan berat badan yang sehat",
+    "Precaution_4":"latihan"
+  },
+  {
+    "Disease":"Kolestasis kronis",
+    "Precaution_1":"mandi air dingin",
+    "Precaution_2":"obat anti gatal",
+    "Precaution_3":"Konsultasikan dengan dokter",
+    "Precaution_4":"makan sehat"
+  },
+  {
+    "Disease":"Hepatitis A",
+    "Precaution_1":"Konsultasikan dengan rumah sakit terdekat",
+    "Precaution_2":"Cuci tangan melalui",
+    "Precaution_3":"Hindari makanan pedas berlemak",
+    "Precaution_4":"pengobatan"
+  },
+  {
+    "Disease":"Osteoartritis",
+    "Precaution_1":"parasetamol",
+    "Precaution_2":"Konsultasikan dengan rumah sakit terdekat",
+    "Precaution_3":"menindaklanjuti",
+    "Precaution_4":"mandi garam"
+  },
+  {
+    "Disease":"Vertigo posisi paroksismal",
+    "Precaution_1":"berbaring",
+    "Precaution_2":"Hindari perubahan tubuh yang tiba -tiba",
+    "Precaution_3":"Hindari pergerakan kepala yang tiba -tiba",
+    "Precaution_4":"santai"
+  },
+  {
+    "Disease":"Hipoglikemia",
+    "Precaution_1":"berbaring di samping",
+    "Precaution_2":"Periksa pulsa",
+    "Precaution_3":"Minum minuman manis",
+    "Precaution_4":"Konsultasikan dengan dokter"
+  },
+  {
+    "Disease":"Jerawat",
+    "Precaution_1":"mandi dua kali",
+    "Precaution_2":"Hindari makanan pedas berlemak",
+    "Precaution_3":"Minum banyak air",
+    "Precaution_4":"Hindari terlalu banyak produk"
+  },
+  {
+    "Disease":"Diabetes",
+    "Precaution_1":"memiliki diet seimbang",
+    "Precaution_2":"latihan",
+    "Precaution_3":"Konsultasikan dengan dokter",
+    "Precaution_4":"menindaklanjuti"
+  },
+  {
+    "Disease":"Impetigo",
+    "Precaution_1":"Rendam area yang terkena di air hangat",
+    "Precaution_2":"Gunakan antibiotik",
+    "Precaution_3":"Hapus keropeng dengan kain tekan basah",
+    "Precaution_4":"Konsultasikan dengan dokter"
+  },
+  {
+    "Disease":"Hipertensi",
+    "Precaution_1":"meditasi",
+    "Precaution_2":"mandi garam",
+    "Precaution_3":"mengurangi stres",
+    "Precaution_4":"tidur nyenyak"
+  },
+  {
+    "Disease":"Tukak lambung",
+    "Precaution_1":"Hindari makanan pedas berlemak",
+    "Precaution_2":"Konsumsi makanan probiotik",
+    "Precaution_3":"menghilangkan susu",
+    "Precaution_4":"Batasi alkohol"
+  },
+  {
+    "Disease":"Wasir tipe dimorfik",
+    "Precaution_1":"Hindari makanan pedas berlemak",
+    "Precaution_2":"mengkonsumsi witch hazel",
+    "Precaution_3":"mandi air hangat dengan garam epsom",
+    "Precaution_4":"Konsumsi jus alovera"
+  },
+  {
+    "Disease":"Flu biasa",
+    "Precaution_1":"Minum minuman kaya vitamin C",
+    "Precaution_2":"Ambil uap",
+    "Precaution_3":"Hindari makanan dingin",
+    "Precaution_4":"tetap demam di cek"
+  },
+  {
+    "Disease":"Cacar air",
+    "Precaution_1":"Gunakan Neem dalam mandi",
+    "Precaution_2":"mengkonsumsi daun neem",
+    "Precaution_3":"Ambil vaksin",
+    "Precaution_4":"Hindari tempat umum"
+  },
+  {
+    "Disease":"Spondilosis servikal",
+    "Precaution_1":"Gunakan pad pemanas atau paket dingin",
+    "Precaution_2":"latihan",
+    "Precaution_3":"Ambil Reliver Nyeri OTC",
+    "Precaution_4":"Konsultasikan dengan dokter"
+  },
+  {
+    "Disease":"Hipertiroidisme",
+    "Precaution_1":"makan sehat",
+    "Precaution_2":"pijat",
+    "Precaution_3":"Gunakan Lemon Balm",
+    "Precaution_4":"Ambil pengobatan yodium radioaktif"
+  },
+  {
+    "Disease":"Infeksi saluran kemih",
+    "Precaution_1":"Minum banyak air",
+    "Precaution_2":"Tingkatkan asupan vitamin C",
+    "Precaution_3":"Minum jus cranberry",
+    "Precaution_4":"Ambil probiotik"
+  },
+  {
+    "Disease":"Varises",
+    "Precaution_1":"berbaring telentang dan angkat kaki tinggi",
+    "Precaution_2":"Gunakan OinMents",
+    "Precaution_3":"Gunakan kompresi vena",
+    "Precaution_4":"jangan diam lama"
+  },
+  {
+    "Disease":"AIDS",
+    "Precaution_1":"Hindari potongan terbuka",
+    "Precaution_2":"Kenakan APD jika memungkinkan",
+    "Precaution_3":"Konsultasikan dengan dokter",
+    "Precaution_4":"menindaklanjuti"
+  },
+  {
+    "Disease":"Kelumpuhan (perdarahan otak)",
+    "Precaution_1":"pijat",
+    "Precaution_2":"makan sehat",
+    "Precaution_3":"latihan",
+    "Precaution_4":"Konsultasikan dengan dokter"
+  },
+  {
+    "Disease":"Tifus",
+    "Precaution_1":"Makanlah Vegitables Kalori Tinggi",
+    "Precaution_2":"Terapi antiboitik",
+    "Precaution_3":"Konsultasikan dengan dokter",
+    "Precaution_4":"pengobatan"
+  },
+  {
+    "Disease":"Hepatitis B",
+    "Precaution_1":"Konsultasikan dengan rumah sakit terdekat",
+    "Precaution_2":"Vaksinasi",
+    "Precaution_3":"makan sehat",
+    "Precaution_4":"pengobatan"
+  },
+  {
+    "Disease":"Infeksi jamur",
+    "Precaution_1":"mandi dua kali",
+    "Precaution_2":"Gunakan detol atau neem dalam air mandi",
+    "Precaution_3":"Jaga agar area yang terinfeksi tetap kering",
+    "Precaution_4":"Gunakan kain bersih"
+  },
+  {
+    "Disease":"Hepatitis C",
+    "Precaution_1":"Konsultasikan dengan rumah sakit terdekat",
+    "Precaution_2":"Vaksinasi",
+    "Precaution_3":"makan sehat",
+    "Precaution_4":"pengobatan"
+  },
+  {
+    "Disease":"Migrain",
+    "Precaution_1":"meditasi",
+    "Precaution_2":"mengurangi stres",
+    "Precaution_3":"Gunakan kacamata poloroid di bawah sinar matahari",
+    "Precaution_4":"Konsultasikan dengan dokter"
+  },
+  {
+    "Disease":"Asma bronkial",
+    "Precaution_1":"Beralih ke longgar awan",
+    "Precaution_2":"Ambil napas dalam -dalam",
+    "Precaution_3":"menjauh dari pemicu",
+    "Precaution_4":"mencari bantuan"
+  },
+  {
+    "Disease":"Hepatitis alkoholik",
+    "Precaution_1":"Hentikan konsumsi alkohol",
+    "Precaution_2":"Konsultasikan dengan dokter",
+    "Precaution_3":"pengobatan",
+    "Precaution_4":"menindaklanjuti"
+  },
+  {
+    "Disease":"Penyakit kuning",
+    "Precaution_1":"Minum banyak air",
+    "Precaution_2":"Konsumsi susu thistle",
+    "Precaution_3":"makan buah -buahan dan makanan berserat tinggi",
+    "Precaution_4":"pengobatan"
+  },
+  {
+    "Disease":"Hepatitis E",
+    "Precaution_1":"Hentikan konsumsi alkohol",
+    "Precaution_2":"istirahat",
+    "Precaution_3":"Konsultasikan dengan dokter",
+    "Precaution_4":"pengobatan"
+  },
+  {
+    "Disease":"Demam berdarah (Dengue)",
+    "Precaution_1":"Minumlah jus daun pepaya",
+    "Precaution_2":"Hindari makanan pedas berlemak",
+    "Precaution_3":"Jauhkan nyamuk",
+    "Precaution_4":"tetap terhidrasi"
+  },
+  {
+    "Disease":"Hepatitis D",
+    "Precaution_1":"Konsultasikan dengan dokter",
+    "Precaution_2":"pengobatan",
+    "Precaution_3":"makan sehat",
+    "Precaution_4":"menindaklanjuti"
+  },
+  {
+    "Disease":"Serangan jantung",
+    "Precaution_1":"Panggil ambulans",
+    "Precaution_2":"mengunyah atau menelan asprin",
+    "Precaution_3":"tetap tenang",
+    "Precaution_4":null
+  },
+  {
+    "Disease":"Pneumonia",
+    "Precaution_1":"Konsultasikan dengan dokter",
+    "Precaution_2":"pengobatan",
+    "Precaution_3":"istirahat",
+    "Precaution_4":"menindaklanjuti"
+  },
+  {
+    "Disease":"Arthritis",
+    "Precaution_1":"latihan",
+    "Precaution_2":"Gunakan terapi panas dan dingin",
+    "Precaution_3":"Coba akupunktur",
+    "Precaution_4":"pijat"
+  },
+  {
+    "Disease":"Gastroenteritis",
+    "Precaution_1":"berhenti makan makanan padat untuk sementara",
+    "Precaution_2":"Cobalah minum air kecil",
+    "Precaution_3":"istirahat",
+    "Precaution_4":"mudah kembali untuk makan"
+  },
+  {
+    "Disease":"Tuberkulosis",
+    "Precaution_1":"Tutup mulut",
+    "Precaution_2":"Konsultasikan dengan dokter",
+    "Precaution_3":"pengobatan",
+    "Precaution_4":"istirahat"
+  }
+]
