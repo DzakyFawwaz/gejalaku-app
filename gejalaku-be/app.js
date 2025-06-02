@@ -1,11 +1,13 @@
-import Hapi from "@hapi/hapi";
-import { initializeFirebase } from "./src/services/firebaseService.js";
-import authRoutes from "./src/routes/authRoutes.js";
+const Hapi = require("@hapi/hapi");
+const { initializeFirebase } = require("./src/services/firebaseService.js");
+const authRoutes = require("./src/routes/authRoutes.js");
+const predictRoutes = require("./src/routes/predictRoutes.js");
+const { loadModel, loadLabels, ALL_MODEL_SYMPTOMS_ARRAY } = require("./src/services/predictService.js");
 
 const init = async () => {
   const server = Hapi.server({
     port: process.env.PORT || 8888,
-    host: "https://gejalaku-be.vercel.app/",
+    // host: "https://gejalaku-be.vercel.app/",
     routes: {
       cors: {
         origin: ["*"], // Allow all origins
@@ -16,7 +18,9 @@ const init = async () => {
   });
 
   try {
-    initializeFirebase();
+    await initializeFirebase();
+    await loadModel();  // Muat model saat server start
+    await loadLabels(); // Muat labels saat server start
   } catch (error) {
     console.log(`firebase error | ${error}`);
   }
@@ -30,6 +34,7 @@ const init = async () => {
 
   // Register routes
   server.route(authRoutes);
+  server.route(predictRoutes);
 
   await server.start();
   console.log("Server running on %s", server.info.uri);
