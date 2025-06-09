@@ -1,0 +1,10 @@
+{
+  "ALL_MODEL_SYMPTOMS": "../../../gejalaku-ml/symptoms.txt",
+  "MODEL_PATH": "gejalaku_model_tfjs/model.json",
+  "ARTIFACTS_DIR": "gejalaku_model_tfjs/artifacts",
+  "SYMPTOMS_LIST": "gejalaku_model_tfjs/artifacts/symptoms_list.json",
+  "LABELS": "gejalaku_model_tfjs/artifacts/labels.json",
+  "DISEASE_DESCRIPTIONS": "data/disease_descriptions.json",
+  "DISEASE_PRECAUTIONS": "data/disease_precautions.json",
+  "DISEASE_DRUGS": "data/disease_drugs.json"
+}

@@ -1,80 +1,146 @@
-// src/services/mlService.js
-const tf = require('@tensorflow/tfjs-node');
-const fs = require('fs');
-const path = require('path');
+const tf = require("@tensorflow/tfjs-node");
+const fs = require("fs");
+const path = require("path");
+const { spawn } = require("child_process");
 
-const ALL_MODEL_SYMPTOMS = path.resolve(__dirname, '../../../gejalaku-ml/symptoms.txt')
-const allSymptomsRaw = fs.readFileSync(ALL_MODEL_SYMPTOMS, 'utf8');
-const ALL_MODEL_SYMPTOMS_ARRAY = allSymptomsRaw.split('\n').map(s => s.trim()).filter(Boolean);
+// Load paths from model.json
+const config = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "model.json"), "utf8")
+);
+
+const ALL_MODEL_SYMPTOMS = path.resolve(__dirname, config.ALL_MODEL_SYMPTOMS);
+const allSymptomsRaw = fs.readFileSync(ALL_MODEL_SYMPTOMS, "utf8");
+const ALL_MODEL_SYMPTOMS_ARRAY = allSymptomsRaw
+  .split("\n")
+  .map((s) => s.trim())
+  .filter(Boolean);
 
 let model;
-let labels;
+let symptomsList;
+let labelMapping;
+let diseaseInfo;
 
-async function loadModel() {
-    try {
-        const modelJsonPath = path.resolve(__dirname, '../../../gejalaku-ml/tfjs_model/model.json');
-        console.log(`Mencoba memuat model dari: file://${modelJsonPath}`); 
-        model = await tf.loadLayersModel(`file://${modelJsonPath}`);
-        console.log('Model TFJS berhasil dimuat.');
-    } catch (error) {
-        console.error('Gagal memuat model TFJS:', error);
-        throw error; 
-    }
-}
-
-function loadLabels() {
-    try {
-        const labelsPath = path.resolve(__dirname, '../../../gejalaku-ml/labels.txt');
-        console.log(`Mencoba memuat labels dari: ${labelsPath}`); 
-        const rawLabels = fs.readFileSync(labelsPath, 'utf8');
-        labels = rawLabels.split('\n').map(label => label.trim()).filter(label => label);
-        console.log('Labels berhasil dimuat.');
-    } catch (error) {
-        console.error('Gagal memuat labels.txt:', error);
-        throw error;
-    }
-}
-
-function preprocessInput(selectedSymptoms) {
-
-    const inputVector = ALL_MODEL_SYMPTOMS_ARRAY.map(symptom =>
-        selectedSymptoms.includes(symptom) ? 1 : 0
+// --- FASE 2: Data Informasi Penyakit ---
+const loadDiseaseInfo = () => {
+  try {
+    const descriptions = JSON.parse(
+      fs.readFileSync(
+        path.join(__dirname, config.DISEASE_DESCRIPTIONS),
+        "utf-8"
+      )
+    );
+    const precautions = JSON.parse(
+      fs.readFileSync(path.join(__dirname, config.DISEASE_PRECAUTIONS), "utf-8")
+    );
+    const drugs = JSON.parse(
+      fs.readFileSync(path.join(__dirname, config.DISEASE_DRUGS), "utf-8")
     );
 
-    // Model mungkin mengharapkan input dalam bentuk tertentu (misalnya, [1, num_symptoms])
-    // Sesuaikan dimensi tensor sesuai kebutuhan model Anda.
-    // Contoh: jika model menerima tensor 2D dengan shape [1, jumlah_gejala]
-    return tf.tensor2d([inputVector]);
-}
+    diseaseInfo = {};
+    Object.keys(descriptions).forEach((disease) => {
+      diseaseInfo[disease] = {
+        description: descriptions[disease] || "Deskripsi tidak tersedia.",
+        precautions: precautions[disease] || [
+          "Informasi pencegahan tidak tersedia.",
+        ],
+        drugs: drugs[disease] || [
+          "Konsultasikan dengan dokter untuk rekomendasi obat.",
+        ],
+      };
+    });
+    console.log("✅ Data informasi penyakit berhasil dimuat.");
+  } catch (error) {
+    console.error("❌ Gagal memuat data informasi penyakit:", error);
+    diseaseInfo = {}; // Fallback dengan data kosong
+  }
+};
 
-function predict(inputTensor) {
+// --- FASE 3: Fungsi untuk Memuat Model dan Artefak ---
+async function loadModelAndArtifacts() {
+  try {
+    const modelPath = `file://${path.join(__dirname, config.MODEL_PATH)}`;
+    model = await tf.loadLayersModel(modelPath);
+    console.log("✅ Model TensorFlow.js berhasil dimuat.");
 
-    console.log({model})
+    const artifactsDir = path.join(__dirname, config.ARTIFACTS_DIR);
 
-    if (!model) {
-        throw new Error('Model belum dimuat.');
+    if (!fs.existsSync(artifactsDir)) {
+      fs.mkdirSync(artifactsDir, { recursive: true });
     }
-    const prediction = model.predict(inputTensor);
-    return prediction; // Ini adalah tensor output dari model
-}
 
-function postprocessOutput(predictionTensor) {
-    // Misal output model adalah probabilitas untuk setiap kelas penyakit
-    // Kita ambil index dengan probabilitas tertinggi
-    const outputArray = predictionTensor.arraySync()[0]; // Ambil array dari tensor output, misal shape [1, num_classes]
-    const predictedIndex = outputArray.indexOf(Math.max(...outputArray));
+    const symptomsPath = path.join(__dirname, config.SYMPTOMS_LIST);
+    const labelsPath = path.join(__dirname, config.LABELS);
 
-    if (labels && labels[predictedIndex]) {
-        return labels[predictedIndex]; // Kembalikan nama penyakit dari labels.txt
+    if (fs.existsSync(symptomsPath)) {
+      symptomsList = JSON.parse(fs.readFileSync(symptomsPath, "utf8"));
+      console.log(`✅ Artefak gejala dimuat (${symptomsList.length} gejala).`);
+    } else {
+      console.warn(
+        "⚠️ Peringatan: file 'symptoms_list.json' tidak ditemukan. Diagnosis mungkin tidak akurat."
+      );
+      symptomsList = []; // Fallback
     }
-    return "Penyakit tidak diketahui"; // Fallback
+
+    if (fs.existsSync(labelsPath)) {
+      labelMapping = JSON.parse(fs.readFileSync(labelsPath, "utf8"));
+      console.log(
+        `✅ Artefak label penyakit dimuat (${
+          Object.keys(labelMapping).length
+        } penyakit).`
+      );
+    } else {
+      console.warn(
+        "⚠️ Peringatan: file 'labels.json' tidak ditemukan. Diagnosis mungkin tidak akurat."
+      );
+      labelMapping = {}; // Fallback
+    }
+  } catch (error) {
+    console.error(
+      '❌ Gagal memuat model TensorFlow.js atau artefaknya. Pastikan folder "gejalaku_model_tfjs" sudah benar.',
+      error
+    );
+  }
 }
+
+const predict = async (symptoms) => {
+  if (!model || !symptomsList || !labelMapping) {
+    return {
+      error: "Model sedang dimuat atau gagal dimuat. Silakan coba lagi nanti.",
+    };
+  }
+
+  const inputVector = symptomsList.map((symptom) =>
+    symptoms.includes(symptom) ? 1 : 0
+  );
+
+  const inputTensor = tf.tensor2d([inputVector]);
+  const prediction = model.predict(inputTensor);
+  const predictionData = await prediction.data();
+
+  const predictedIndex = prediction.as1D().argMax().dataSync()[0];
+  const predictedDisease = labelMapping[predictedIndex];
+  const confidence = predictionData[predictedIndex];
+
+  const details = diseaseInfo[predictedDisease] || {
+    description: "Informasi detail tidak ditemukan.",
+    precautions: [],
+    drugs: [],
+  };
+
+  tf.dispose([inputTensor, prediction]);
+
+  return {
+    predictedDisease,
+    confidence: confidence.toFixed(4),
+    details: details,
+  };
+};
 
 module.exports = {
-    loadModel,
-    loadLabels,
-    preprocessInput,
-    predict,
-    postprocessOutput,
-    ALL_MODEL_SYMPTOMS_ARRAY 
+  predict,
+  symptomsList,
+  labelMapping,
+  loadDiseaseInfo,
+  loadModelAndArtifacts,
+  ALL_MODEL_SYMPTOMS_ARRAY,
 };

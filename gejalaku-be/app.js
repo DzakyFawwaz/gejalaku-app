@@ -2,7 +2,10 @@ const Hapi = require("@hapi/hapi");
 const { initializeFirebase } = require("./src/services/firebaseService.js");
 const authRoutes = require("./src/routes/authRoutes.js");
 const predictRoutes = require("./src/routes/predictRoutes.js");
-const { loadModel, loadLabels, ALL_MODEL_SYMPTOMS_ARRAY } = require("./src/services/predictService.js");
+const {
+  loadDiseaseInfo,
+  loadModelAndArtifacts,
+} = require("./src/services/predictService.js");
 
 const init = async () => {
   const server = Hapi.server({
@@ -19,8 +22,8 @@ const init = async () => {
 
   try {
     await initializeFirebase();
-    await loadModel();  // Muat model saat server start
-    await loadLabels(); // Muat labels saat server start
+    await loadDiseaseInfo(); // Muat model saat server start
+    await loadModelAndArtifacts(); // Muat labels saat server start
   } catch (error) {
     console.log(`firebase error | ${error}`);
   }
