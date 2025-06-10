@@ -5,6 +5,7 @@ const predictRoutes = require("./src/routes/predictRoutes.js");
 const {
   loadDiseaseInfo,
   loadModelAndArtifacts,
+  loadModel,
 } = require("./src/services/predictService.js");
 
 const init = async () => {

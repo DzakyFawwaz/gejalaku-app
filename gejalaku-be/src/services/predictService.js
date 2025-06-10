@@ -20,6 +20,27 @@ let symptomsList;
 let labelMapping;
 let diseaseInfo;
 
+const modelPath = `file://${path.join(__dirname, config.MODEL_PATH)}`;
+
+const loadModel = async () => {
+  console.log("Memuat model machine learning...");
+  const modelPath = `file://${path.join(
+    __dirname,
+    "../../../gejalaku-ml/tfjs_model",
+    "model.json"
+  )}`;
+  try {
+    model = await tf.loadLayersModel(modelPath);
+    console.log("Model berhasil dimuat.");
+    // Lakukan "pemanasan" model
+    model.predict(tf.zeros([1, symptomsList.length])).dispose();
+    console.log("Pemanasan model selesai.");
+  } catch (error) {
+    console.error("Gagal memuat model:", error);
+    process.exit(1);
+  }
+};
+
 // --- FASE 2: Data Informasi Penyakit ---
 const loadDiseaseInfo = () => {
   try {
@@ -58,8 +79,6 @@ const loadDiseaseInfo = () => {
 // --- FASE 3: Fungsi untuk Memuat Model dan Artefak ---
 async function loadModelAndArtifacts() {
   try {
-
-
     const artifactsDir = path.join(__dirname, config.ARTIFACTS_DIR);
 
     if (!fs.existsSync(artifactsDir)) {
@@ -107,8 +126,7 @@ const predict = async (symptoms) => {
     };
   }
 
-  const modelPath = `file://${path.join(__dirname, config.MODEL_PATH)}`;
-  model = await tf.loadLayersModel(modelPath);
+  const model = await tf.loadLayersModel(modelPath);
   console.log("✅ Model TensorFlow.js berhasil dimuat.");
 
   const inputVector = symptomsList.map((symptom) =>
@@ -140,6 +158,7 @@ const predict = async (symptoms) => {
 
 module.exports = {
   predict,
+  loadModel,
   symptomsList,
   labelMapping,
   loadDiseaseInfo,
