@@ -58,9 +58,7 @@ const loadDiseaseInfo = () => {
 // --- FASE 3: Fungsi untuk Memuat Model dan Artefak ---
 async function loadModelAndArtifacts() {
   try {
-    const modelPath = `file://${path.join(__dirname, config.MODEL_PATH)}`;
-    model = await tf.loadLayersModel(modelPath);
-    console.log("✅ Model TensorFlow.js berhasil dimuat.");
+
 
     const artifactsDir = path.join(__dirname, config.ARTIFACTS_DIR);
 
@@ -103,11 +101,15 @@ async function loadModelAndArtifacts() {
 }
 
 const predict = async (symptoms) => {
-  if (!model || !symptomsList || !labelMapping) {
+  if (!symptomsList || !labelMapping) {
     return {
       error: "Model sedang dimuat atau gagal dimuat. Silakan coba lagi nanti.",
     };
   }
+
+  const modelPath = `file://${path.join(__dirname, config.MODEL_PATH)}`;
+  model = await tf.loadLayersModel(modelPath);
+  console.log("✅ Model TensorFlow.js berhasil dimuat.");
 
   const inputVector = symptomsList.map((symptom) =>
     symptoms.includes(symptom) ? 1 : 0

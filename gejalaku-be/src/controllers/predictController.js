@@ -2,29 +2,30 @@
 const mlService = require("../services/predictService");
 // const dbService = require('../services/dbService'); // Jika Anda punya layanan DB
 
-async function handlePredict(req, res) {
-  const { symptoms } = req.body;
+async function handlePredict(request, h) {
+  const { symptoms } = request.payload || {};
 
   if (!symptoms || !Array.isArray(symptoms) || symptoms.length === 0) {
-    return res.status(400).json({
-      error: "Input tidak valid. Harap berikan array gejala (symptoms).",
-    });
+    return h
+      .response({
+        error: "Input tidak valid. Harap berikan array gejala (symptoms).",
+      })
+      .code(400);
   }
 
   try {
-    // Call predict and get the result object
     const result = await mlService.predict(symptoms);
 
-    // If predict returns an error object, handle it
     if (result && result.error) {
-      return res.status(503).json(result);
+      return h.response(result).code(503);
     }
 
-    // Return the prediction result
-    res.status(200).json(result);
+    return h.response(result).code(200);
   } catch (error) {
     console.error("Error saat melakukan diagnosis:", error);
-    res.status(500).json({ error: "Terjadi kesalahan di server." });
+    return h
+      .response({ error: "Terjadi kesalahan di server." })
+      .code(500);
   }
 }
 
