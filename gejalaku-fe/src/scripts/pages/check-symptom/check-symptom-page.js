@@ -1,3 +1,5 @@
+import { getAllSymptomsByBodyPart, predictSymptoms } from '../../data/predict';
+
 export default class CheckSymptomPage {
   constructor() {
     this.allSymptoms = [];
@@ -177,9 +179,8 @@ export default class CheckSymptomPage {
     // Fetch symptoms jika belum ada
     if (this.symptomsByCategory === null) {
       try {
-        const res = await fetch('http://localhost:8888/symptoms-by-bodypart');
+        const res = await getAllSymptomsByBodyPart();
         if (res.ok) {
-          const data = await res.json();
           // Asumsikan data berupa array string
           this.symptomsByCategory = data['symptomsByBodyPart'];
           // Ambil semua gejala dari semua body part kecuali 'umum'
@@ -305,18 +306,8 @@ export default class CheckSymptomPage {
 
     document.getElementById('check-symptom-button').addEventListener('click', async () => {
       try {
-        const res = await fetch('http://localhost:8888/predict-symptoms', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            symptoms: this.selectedSymptoms.map((s) => s.id),
-          }),
-          mode: 'cors',
-        });
+        const res = await predictSymptoms();
 
-        const data = await res.json();
         if (res.ok) {
           const predictionData = {
             ...data,
