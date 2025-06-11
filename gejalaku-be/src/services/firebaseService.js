@@ -38,4 +38,5 @@ module.exports = {
   initializeFirebase,
   register,
   login,
+  firebaseApp,
 };

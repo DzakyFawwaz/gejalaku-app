@@ -58,11 +58,12 @@ const initializeService = async () => {
         precautions: precautions.find(
           (prec) => prec["Disease"] == diseaseName
         ) || ["Informasi pencegahan tidak tersedia."],
-        drugs: drugs.find((drug) => drug["Disease"] == diseaseName) || [
+        drugs: drugs.find((drug) => drug["disease"] == diseaseName) || [
           "Konsultasikan dengan dokter untuk rekomendasi obat.",
         ],
       };
     });
+
     console.log("✅ Data informasi penyakit berhasil dimuat.");
 
     console.log(`Memuat model dari: ${modelPath}`);
@@ -114,10 +115,16 @@ const predict = async (symptoms) => {
       drugs: [],
     };
 
+    const symptompList = symptoms.map((symptom) => ({
+      id: symptom,
+      name: symptom.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+    }));
+
     return {
       predictedDisease,
       confidence: confidence.toFixed(4),
       details,
+      symptoms: symptompList,
       // diseaseInfo
     };
   });
@@ -125,8 +132,8 @@ const predict = async (symptoms) => {
 
 const getAllSymptoms = () => {
   const symptompList = symptomsList.map((symptom) => ({
-    key: symptom,
-    value: symptom.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+    id: symptom,
+    name: symptom.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
   }));
 
   return { symptoms: symptompList };
@@ -161,10 +168,8 @@ const getAllSymptomsByBodyPart = () => {
     }
     if (!classified[foundPart]) classified[foundPart] = [];
     classified[foundPart].push({
-      key: symptom,
-      value: symptom
-        .replace(/_/g, " ")
-        .replace(/\b\w/g, (c) => c.toUpperCase()),
+      id: symptom,
+      name: symptom.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
     });
   });
 
