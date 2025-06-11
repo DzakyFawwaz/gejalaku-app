@@ -1,12 +1,11 @@
 const tf = require("@tensorflow/tfjs-node");
 const fs = require("fs");
 const path = require("path");
-const { spawn } = require("child_process");
 
-// Load paths from model.json
 const config = JSON.parse(
   fs.readFileSync(path.join(__dirname, "model.json"), "utf8")
 );
+const modelPath = `file://${path.resolve(__dirname, config.MODEL_PATH)}`;
 
 const ALL_MODEL_SYMPTOMS = path.resolve(__dirname, config.ALL_MODEL_SYMPTOMS);
 const allSymptomsRaw = fs.readFileSync(ALL_MODEL_SYMPTOMS, "utf8");
@@ -20,148 +19,163 @@ let symptomsList;
 let labelMapping;
 let diseaseInfo;
 
-const modelPath = `file://${path.join(__dirname, config.MODEL_PATH)}`;
-
-const loadModel = async () => {
-  console.log("Memuat model machine learning...");
-  const modelPath = `file://${path.join(
-    __dirname,
-    "../../../gejalaku-ml/tfjs_model",
-    "model.json"
-  )}`;
+/**
+ * Memuat semua artefak, data penyakit, dan model ML ke dalam memori.
+ * Fungsi ini harus dipanggil sekali saat server dimulai.
+ */
+const initializeService = async () => {
+  console.log("🚀 Memulai inisialisasi layanan prediksi...");
   try {
-    model = await tf.loadLayersModel(modelPath);
-    console.log("Model berhasil dimuat.");
-    // Lakukan "pemanasan" model
-    model.predict(tf.zeros([1, symptomsList.length])).dispose();
-    console.log("Pemanasan model selesai.");
-  } catch (error) {
-    console.error("Gagal memuat model:", error);
-    process.exit(1);
-  }
-};
+    const symptomsPath = path.resolve(__dirname, config.SYMPTOMS_LIST);
+    const labelsPath = path.resolve(__dirname, config.LABELS);
 
-// --- FASE 2: Data Informasi Penyakit ---
-const loadDiseaseInfo = () => {
-  try {
-    const descriptions = JSON.parse(
-      fs.readFileSync(
-        path.join(__dirname, config.DISEASE_DESCRIPTIONS),
-        "utf-8"
-      )
+    symptomsList = JSON.parse(fs.readFileSync(symptomsPath, "utf8"));
+    labelMapping = JSON.parse(fs.readFileSync(labelsPath, "utf8"));
+    console.log(
+      `✅ Artefak dimuat: ${symptomsList.length} gejala, ${
+        Object.keys(labelMapping).length
+      } penyakit.`
     );
-    const precautions = JSON.parse(
-      fs.readFileSync(path.join(__dirname, config.DISEASE_PRECAUTIONS), "utf-8")
+
+    const descriptionsPath = path.resolve(
+      __dirname,
+      config.DISEASE_DESCRIPTIONS
     );
-    const drugs = JSON.parse(
-      fs.readFileSync(path.join(__dirname, config.DISEASE_DRUGS), "utf-8")
-    );
+    const precautionsPath = path.resolve(__dirname, config.DISEASE_PRECAUTIONS);
+    const drugsPath = path.resolve(__dirname, config.DISEASE_DRUGS);
+
+    const descriptions = JSON.parse(fs.readFileSync(descriptionsPath, "utf-8"));
+    const precautions = JSON.parse(fs.readFileSync(precautionsPath, "utf-8"));
+    const drugs = JSON.parse(fs.readFileSync(drugsPath, "utf-8"));
 
     diseaseInfo = {};
-    Object.keys(descriptions).forEach((disease) => {
-      diseaseInfo[disease] = {
-        description: descriptions[disease] || "Deskripsi tidak tersedia.",
-        precautions: precautions[disease] || [
-          "Informasi pencegahan tidak tersedia.",
-        ],
-        drugs: drugs[disease] || [
+    Object.keys(labelMapping).forEach((key) => {
+      const diseaseName = String(labelMapping[key]);
+      diseaseInfo[diseaseName] = {
+        description:
+          descriptions.find((desc) => desc["Disease"] == diseaseName) ||
+          "Deskripsi tidak tersedia.",
+        precautions: precautions.find(
+          (prec) => prec["Disease"] == diseaseName
+        ) || ["Informasi pencegahan tidak tersedia."],
+        drugs: drugs.find((drug) => drug["Disease"] == diseaseName) || [
           "Konsultasikan dengan dokter untuk rekomendasi obat.",
         ],
       };
     });
     console.log("✅ Data informasi penyakit berhasil dimuat.");
+
+    console.log(`Memuat model dari: ${modelPath}`);
+    model = await tf.loadGraphModel(modelPath);
+
+    tf.tidy(() => {
+      model.predict(tf.zeros([1, symptomsList.length]));
+    });
+
+    console.log("✅ Model berhasil dimuat dan siap digunakan.");
+    console.log("🎉 Layanan prediksi berhasil diinisialisasi!");
   } catch (error) {
-    console.error("❌ Gagal memuat data informasi penyakit:", error);
-    diseaseInfo = {}; // Fallback dengan data kosong
+    console.error("❌ Gagal total saat inisialisasi layanan:", error);
+    process.exit(1);
   }
 };
 
-// --- FASE 3: Fungsi untuk Memuat Model dan Artefak ---
-async function loadModelAndArtifacts() {
-  try {
-    const artifactsDir = path.join(__dirname, config.ARTIFACTS_DIR);
-
-    if (!fs.existsSync(artifactsDir)) {
-      fs.mkdirSync(artifactsDir, { recursive: true });
-    }
-
-    const symptomsPath = path.join(__dirname, config.SYMPTOMS_LIST);
-    const labelsPath = path.join(__dirname, config.LABELS);
-
-    if (fs.existsSync(symptomsPath)) {
-      symptomsList = JSON.parse(fs.readFileSync(symptomsPath, "utf8"));
-      console.log(`✅ Artefak gejala dimuat (${symptomsList.length} gejala).`);
-    } else {
-      console.warn(
-        "⚠️ Peringatan: file 'symptoms_list.json' tidak ditemukan. Diagnosis mungkin tidak akurat."
-      );
-      symptomsList = []; // Fallback
-    }
-
-    if (fs.existsSync(labelsPath)) {
-      labelMapping = JSON.parse(fs.readFileSync(labelsPath, "utf8"));
-      console.log(
-        `✅ Artefak label penyakit dimuat (${
-          Object.keys(labelMapping).length
-        } penyakit).`
-      );
-    } else {
-      console.warn(
-        "⚠️ Peringatan: file 'labels.json' tidak ditemukan. Diagnosis mungkin tidak akurat."
-      );
-      labelMapping = {}; // Fallback
-    }
-  } catch (error) {
-    console.error(
-      '❌ Gagal memuat model TensorFlow.js atau artefaknya. Pastikan folder "gejalaku_model_tfjs" sudah benar.',
-      error
-    );
-  }
-}
-
+/**
+ * Menjalankan prediksi berdasarkan gejala yang diterima.
+ * Menggunakan model yang sudah dimuat di memori.
+ * @param {string[]} symptoms Array berisi string gejala dari pengguna.
+ * @returns {object} Hasil prediksi termasuk nama penyakit, kepercayaan diri, dan detail.
+ */
 const predict = async (symptoms) => {
-  if (!symptomsList || !labelMapping) {
-    return {
-      error: "Model sedang dimuat atau gagal dimuat. Silakan coba lagi nanti.",
-    };
+  if (!model || !symptomsList || !labelMapping) {
+    console.error(
+      "Model atau artefak belum diinisialisasi. Jalankan initializeService() terlebih dahulu."
+    );
+    throw new Error("Layanan prediksi belum siap. Silakan coba lagi sesaat.");
   }
 
-  const model = await tf.loadLayersModel(modelPath);
-  console.log("✅ Model TensorFlow.js berhasil dimuat.");
+  return tf.tidy(() => {
+    const inputVector = symptomsList.map((symptom) =>
+      symptoms.includes(symptom) ? 1 : 0
+    );
+    const inputTensor = tf.tensor2d([inputVector]);
+    const prediction = model.predict(inputTensor);
+    const predictionData = prediction.dataSync();
+    const predictedIndex = prediction.argMax(1).dataSync()[0];
 
-  const inputVector = symptomsList.map((symptom) =>
-    symptoms.includes(symptom) ? 1 : 0
-  );
+    const predictedDisease = labelMapping[predictedIndex];
+    const confidence = predictionData[predictedIndex];
 
-  const inputTensor = tf.tensor2d([inputVector]);
-  const prediction = model.predict(inputTensor);
-  const predictionData = await prediction.data();
+    // console.log({ diseaseInfo });
 
-  const predictedIndex = prediction.as1D().argMax().dataSync()[0];
-  const predictedDisease = labelMapping[predictedIndex];
-  const confidence = predictionData[predictedIndex];
+    const details = diseaseInfo[predictedDisease] || {
+      description: "Informasi detail tidak ditemukan.",
+      precautions: [],
+      drugs: [],
+    };
 
-  const details = diseaseInfo[predictedDisease] || {
-    description: "Informasi detail tidak ditemukan.",
-    precautions: [],
-    drugs: [],
+    return {
+      predictedDisease,
+      confidence: confidence.toFixed(4),
+      details,
+      // diseaseInfo
+    };
+  });
+};
+
+const getAllSymptoms = () => {
+  const symptompList = symptomsList.map((symptom) => ({
+    key: symptom,
+    value: symptom.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+  }));
+
+  return { symptoms: symptompList };
+};
+
+const getAllSymptomsByBodyPart = () => {
+  if (!symptomsList) {
+    throw new Error("Daftar gejala belum dimuat.");
+  }
+
+  // TODO : penambahan klasifikasi nantinya akan secara otomatis melalui backend dan machine learning
+  const bodyPartKeywords = {
+    kepala: ["kepala", "pusing", "penglihatan"],
+    pernapasan: ["batuk", "napas", "dada", "bersin", "paru"],
+    pencernaan: ["mual", "muntah", "diare", "perut", "lambung", "usus"],
+    kulit: ["ruam", "gatal", "kulit", "bintik", "kemerahan"],
+    umum: ["demam", "lemas", "berat_badan", "depresi", "nyeri"],
+    tenggorokan: ["tenggorokan", "dahak", "dehidrasi", "radang"],
+    mata: ["mata", "penglihatan"],
+    hidung: ["hidung", "pilek"],
+    mulut: ["mulut", "lidah", "gigi"],
   };
 
-  tf.dispose([inputTensor, prediction]);
+  const classified = {};
+  symptomsList.forEach((symptom) => {
+    let foundPart = "lainnya";
+    for (const [part, keywords] of Object.entries(bodyPartKeywords)) {
+      if (keywords.some((kw) => symptom.includes(kw))) {
+        foundPart = part;
+        break;
+      }
+    }
+    if (!classified[foundPart]) classified[foundPart] = [];
+    classified[foundPart].push({
+      key: symptom,
+      value: symptom
+        .replace(/_/g, " ")
+        .replace(/\b\w/g, (c) => c.toUpperCase()),
+    });
+  });
 
-  return {
-    predictedDisease,
-    confidence: confidence.toFixed(4),
-    details: details,
-  };
+  return { symptomsByBodyPart: classified };
 };
 
 module.exports = {
+  initializeService,
+  getAllSymptoms,
   predict,
-  loadModel,
   symptomsList,
-  labelMapping,
-  loadDiseaseInfo,
-  loadModelAndArtifacts,
   ALL_MODEL_SYMPTOMS_ARRAY,
+  getAllSymptomsByBodyPart,
 };

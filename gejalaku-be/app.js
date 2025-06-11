@@ -2,11 +2,7 @@ const Hapi = require("@hapi/hapi");
 const { initializeFirebase } = require("./src/services/firebaseService.js");
 const authRoutes = require("./src/routes/authRoutes.js");
 const predictRoutes = require("./src/routes/predictRoutes.js");
-const {
-  loadDiseaseInfo,
-  loadModelAndArtifacts,
-  loadModel,
-} = require("./src/services/predictService.js");
+const { initializeService } = require("./src/services/predictService.js");
 
 const init = async () => {
   const server = Hapi.server({
@@ -14,29 +10,25 @@ const init = async () => {
     // host: "https://gejalaku-be.vercel.app/",
     routes: {
       cors: {
-        origin: ["*"], // Allow all origins
-        headers: ["Accept", "Authorization", "Content-Type", "If-None-Match"], // Allowed headers
-        additionalHeaders: ["X-Requested-With"], // Additional headers
+        origin: ["*"],
+        headers: ["Accept", "Authorization", "Content-Type", "If-None-Match"],
+        additionalHeaders: ["X-Requested-With"],
       },
     },
   });
 
   try {
     await initializeFirebase();
-    await loadDiseaseInfo(); // Muat model saat server start
-    await loadModelAndArtifacts(); // Muat labels saat server start
+    await initializeService();
   } catch (error) {
     console.log(`firebase error | ${error}`);
   }
-
-  // Default route
   server.route({
     method: "GET",
     path: "/",
     handler: () => "Hello World!",
   });
 
-  // Register routes
   server.route(authRoutes);
   server.route(predictRoutes);
 
