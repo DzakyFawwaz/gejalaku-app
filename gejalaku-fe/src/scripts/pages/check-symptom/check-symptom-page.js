@@ -177,30 +177,25 @@ export default class CheckSymptomPage {
 
   async afterRender() {
     // Fetch symptoms jika belum ada
-    if (this.symptomsByCategory === null) {
-      try {
-        const res = await getAllSymptomsByBodyPart();
-        if (res.ok) {
-          // Asumsikan data berupa array string
-          this.symptomsByCategory = data['symptomsByBodyPart'];
-          // Ambil semua gejala dari semua body part kecuali 'umum'
-          this.allSymptoms = Object.entries(data['symptomsByBodyPart'])
-            .filter(([key]) => key !== 'umum')
-            .flatMap(([, symptoms]) => symptoms);
+    try {
+      const res = await getAllSymptomsByBodyPart();
+      if (res.ok) {
+        // Asumsikan data berupa array string
+        this.symptomsByCategory = data['symptomsByBodyPart'];
+        // Ambil semua gejala dari semua body part kecuali 'umum'
+        this.allSymptoms = Object.entries(data['symptomsByBodyPart'])
+          .filter(([key]) => key !== 'umum')
+          .flatMap(([, symptoms]) => symptoms);
 
-          console.log({ allSymptoms: this.allSymptoms, data });
-        }
-      } catch (e) {
-        // Optional: handle error
-        console.log({ error: e });
-        this.symptomsByCategory = null;
+        console.log({ allSymptoms: this.allSymptoms, data });
       }
-      // Rerender setelah fetch
-      document.querySelector('main').outerHTML = await this.render();
-      this.afterRender();
-      return;
+    } catch (e) {
+      // Optional: handle error
+      console.log({ error: e });
+      this.symptomsByCategory = null;
     }
-
+    // Rerender setelah fetch
+    document.querySelector('main').outerHTML = await this.render();
     this.#setup();
   }
 
