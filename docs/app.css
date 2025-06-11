@@ -48,8 +48,34 @@
   view-transition-name: main-footer;
 }
 
+.error-toast {
+  view-transition-name: error-toast;
+}
+
 #dashboard-image {
   background-image: url(/gejalaku-app/images/dashboard.png);
+}
+
+.autocomplete-suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+.autocomplete-suggestions::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.autocomplete-suggestions::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 6px;
+}
+.autocomplete-suggestions::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+/* Add a subtle transition for a smoother experience */
+.transition-all {
+  transition: all 0.2s ease-in-out;
+}
+/* Style for the highlighted suggestion item */
+.suggestion-active {
+  background-color: #dbeafe; /* bg-blue-100 */
 }
 
 
