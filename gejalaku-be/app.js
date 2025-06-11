@@ -7,6 +7,7 @@ const { initializeService } = require("./src/services/predictService.js");
 const init = async () => {
   const server = Hapi.server({
     port: process.env.PORT || 8888,
+    // host: "https://gejalaku-be.vercel.app/",
     routes: {
       cors: {
         origin: ["*"],

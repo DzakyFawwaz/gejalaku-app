@@ -81,12 +81,6 @@ const initializeService = async () => {
   }
 };
 
-/**
- * Menjalankan prediksi berdasarkan gejala yang diterima.
- * Menggunakan model yang sudah dimuat di memori.
- * @param {string[]} symptoms Array berisi string gejala dari pengguna.
- * @returns {object} Hasil prediksi termasuk nama penyakit, kepercayaan diri, dan detail.
- */
 const predict = async (symptoms) => {
   if (!model || !symptomsList || !labelMapping) {
     console.error(

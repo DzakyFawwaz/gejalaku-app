@@ -1,0 +1,1114 @@
+[
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"omeprazole"
+  },
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"pantoprazole"
+  },
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"ranitidine"
+  },
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"famotidine"
+  },
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"lansoprazole"
+  },
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"esomeprazole"
+  },
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"rabeprazole"
+  },
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"sucralfate"
+  },
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"dexlansoprazole"
+  },
+  {
+    "disease":"GERD (refluks asam lambung)",
+    "drug":"omeprazole \/ sodium bicarbonate"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"doxycycline"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"spironolactone"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"minocycline"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"clindamycin"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"tretinoin"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"isotretinoin"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"benzoyl peroxide"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"adapalene"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"tetracycline"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"cephalexin"
+  },
+  {
+    "disease":"Jerawat",
+    "drug":"sulfamethoxazole \/ trimethoprim"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"ciprofloxacin"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"nitrofurantoin"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"sulfamethoxazole \/ trimethoprim"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"amoxicillin"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"doxycycline"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"levofloxacin"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"ceftriaxone"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"amoxicillin \/ clavulanate"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"cefuroxime"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"trimethoprim"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"methenamine"
+  },
+  {
+    "disease":"Infeksi saluran kemih",
+    "drug":"ampicillin"
+  },
+  {
+    "disease":"AIDS",
+    "drug":"dronabinol"
+  },
+  {
+    "disease":"AIDS",
+    "drug":"megestrol"
+  },
+  {
+    "disease":"AIDS",
+    "drug":"somatropin"
+  },
+  {
+    "disease":"Hepatitis alkoholik",
+    "drug":"propylthiouracil"
+  },
+  {
+    "disease":"Hepatitis alkoholik",
+    "drug":"oxandrolone"
+  },
+  {
+    "disease":"Alergi",
+    "drug":"diphenhydramine"
+  },
+  {
+    "disease":"Alergi",
+    "drug":"prednisone"
+  },
+  {
+    "disease":"Alergi",
+    "drug":"loratadine"
+  },
+  {
+    "disease":"Alergi",
+    "drug":"epinephrine"
+  },
+  {
+    "disease":"Alergi",
+    "drug":"chlorpheniramine"
+  },
+  {
+    "disease":"Alergi",
+    "drug":"promethazine"
+  },
+  {
+    "disease":"Alergi",
+    "drug":"triamcinolone"
+  },
+  {
+    "disease":"Alergi",
+    "drug":"cyproheptadine"
+  },
+  {
+    "disease":"Reaksi obat",
+    "drug":"epoetin alfa"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"methotrexate"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"prednisone"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"meloxicam"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"hydroxychloroquine"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"sulfasalazine"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"leflunomide"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"diclofenac"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"naproxen"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"celecoxib"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"acetaminophen \/ hydrocodone"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"ibuprofen"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"meloxicam"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"diclofenac"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"naproxen"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"ibuprofen"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"celecoxib"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"chondroitin \/ glucosamine"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"etodolac"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"prednisone"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"aspirin"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"nabumetone"
+  },
+  {
+    "disease":"Osteoartritis",
+    "drug":"duloxetine"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"montelukast"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"prednisone"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"ipratropium"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"flunisolide"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"methylprednisolone"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"dexamethasone"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"formoterol \/ mometasone"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"triamcinolone"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"fluticasone \/ vilanterol"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"levalbuterol"
+  },
+  {
+    "disease":"Asma bronkial",
+    "drug":"ciclesonide"
+  },
+  {
+    "disease":"Vertigo posisi paroksismal",
+    "drug":"meclizine"
+  },
+  {
+    "disease":"Vertigo posisi paroksismal",
+    "drug":"promethazine"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"sumatriptan"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"rizatriptan"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"gabapentin"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"aspirin \/ butalbital \/ caffeine"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"cyclobenzaprine"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"diclofenac"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"naratriptan"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"almotriptan"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"zolmitriptan"
+  },
+  {
+    "disease":"Migrain",
+    "drug":"eletriptan"
+  },
+  {
+    "disease":"Kolestasis kronis",
+    "drug":"ursodiol"
+  },
+  {
+    "disease":"Kolestasis kronis",
+    "drug":"colchicine"
+  },
+  {
+    "disease":"Kolestasis kronis",
+    "drug":"azathioprine"
+  },
+  {
+    "disease":"Kolestasis kronis",
+    "drug":"obeticholic acid"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"levofloxacin"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"clarithromycin"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"ceftriaxone"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"azithromycin"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"doxycycline"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"amoxicillin"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"ciprofloxacin"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"clindamycin"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"cefdinir"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"amoxicillin \/ clavulanate"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"sulfamethoxazole \/ trimethoprim"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"cefotaxime"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"metronidazole"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"moxifloxacin"
+  },
+  {
+    "disease":"Pneumonia",
+    "drug":"cefuroxime"
+  },
+  {
+    "disease":"Cacar air",
+    "drug":"acyclovir"
+  },
+  {
+    "disease":"Cacar air",
+    "drug":"valacyclovir"
+  },
+  {
+    "disease":"Cacar air",
+    "drug":"varicella zoster immune globulin"
+  },
+  {
+    "disease":"Cacar air",
+    "drug":"immune globulin intramuscular"
+  },
+  {
+    "disease":"Cacar air",
+    "drug":"foscarnet"
+  },
+  {
+    "disease":"Penyakit kuning",
+    "drug":"phenobarbital"
+  },
+  {
+    "disease":"Hepatitis B",
+    "drug":"entecavir"
+  },
+  {
+    "disease":"Hepatitis B",
+    "drug":"tenofovir"
+  },
+  {
+    "disease":"Hepatitis B",
+    "drug":"lamivudine"
+  },
+  {
+    "disease":"Hepatitis B",
+    "drug":"adefovir"
+  },
+  {
+    "disease":"Hepatitis B",
+    "drug":"tenofovir alafenamide"
+  },
+  {
+    "disease":"Hepatitis B",
+    "drug":"interferon alfa-2b"
+  },
+  {
+    "disease":"Hepatitis B",
+    "drug":"peginterferon alfa-2a"
+  },
+  {
+    "disease":"Hepatitis B",
+    "drug":"peginterferon alfa-2b"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"ribavirin"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"ledipasvir \/ sofosbuvir"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"sofosbuvir"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"sofosbuvir \/ velpatasvir"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"peginterferon alfa-2a"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"dasabuvir \/ ombitasvir \/ paritaprevir \/ ritonavir"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"elbasvir \/ grazoprevir"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"interferon alfa-2b"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"peginterferon alfa-2b"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"glecaprevir \/ pibrentasvir"
+  },
+  {
+    "disease":"Hepatitis C",
+    "drug":"sofosbuvir \/ velpatasvir \/ voxilaprevir"
+  },
+  {
+    "disease":"Flu biasa",
+    "drug":"diphenhydramine"
+  },
+  {
+    "disease":"Flu biasa",
+    "drug":"chlorpheniramine"
+  },
+  {
+    "disease":"Flu biasa",
+    "drug":"acetaminophen \/ chlorpheniramine \/ phenylephrine"
+  },
+  {
+    "disease":"Flu biasa",
+    "drug":"pseudoephedrine \/ triprolidine"
+  },
+  {
+    "disease":"Reaksi obat",
+    "drug":"lubiprostone"
+  },
+  {
+    "disease":"Reaksi obat",
+    "drug":"methylnaltrexone"
+  },
+  {
+    "disease":"Reaksi obat",
+    "drug":"naloxegol"
+  },
+  {
+    "disease":"Demam berdarah (Dengue)",
+    "drug":"acetaminophen"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"metformin"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"glipizide"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"glimepiride"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"pioglitazone"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"liraglutide"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"sitagliptin"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"metformin \/ sitagliptin"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin degludec"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin aspart \/ insulin degludec"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin glargine"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin lispro"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin aspart"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin regular"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin glulisine"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"metformin"
+  },
+  {
+    "disease":"Reaksi obat",
+    "drug":"pyridoxine"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"lisinopril"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"amlodipine"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"losartan"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"hydrochlorothiazide"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"metoprolol"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"atenolol"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"carvedilol"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"furosemide"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"hydrochlorothiazide \/ lisinopril"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"clonidine"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"enalapril"
+  },
+  {
+    "disease":"Hipertensi",
+    "drug":"valsartan"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"clobetasol"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"methotrexate"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"triamcinolone"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"fluocinonide"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"calcipotriene"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"mometasone"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"desonide"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"prednisone"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"acitretin"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"cyclosporine"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"hydrocortisone"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"ustekinumab"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"adalimumab"
+  },
+  {
+    "disease":"Psoriasis",
+    "drug":"betamethasone \/ calcipotriene"
+  },
+  {
+    "disease":"Infeksi jamur",
+    "drug":"fluconazole"
+  },
+  {
+    "disease":"Gastroenteritis",
+    "drug":"ondansetron"
+  },
+  {
+    "disease":"Gastroenteritis",
+    "drug":"doxycycline"
+  },
+  {
+    "disease":"Gastroenteritis",
+    "drug":"ceftriaxone"
+  },
+  {
+    "disease":"Gastroenteritis",
+    "drug":"ampicillin"
+  },
+  {
+    "disease":"Gastroenteritis",
+    "drug":"rotavirus vaccine"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin isophane"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin regular"
+  },
+  {
+    "disease":"Diabetes",
+    "drug":"insulin isophane \/ insulin regular"
+  },
+  {
+    "disease":"Serangan jantung",
+    "drug":"aspirin"
+  },
+  {
+    "disease":"Serangan jantung",
+    "drug":"clopidogrel"
+  },
+  {
+    "disease":"Serangan jantung",
+    "drug":"metoprolol"
+  },
+  {
+    "disease":"Serangan jantung",
+    "drug":"lisinopril"
+  },
+  {
+    "disease":"Serangan jantung",
+    "drug":"nitroglycerin"
+  },
+  {
+    "disease":"Serangan jantung",
+    "drug":"ramipril"
+  },
+  {
+    "disease":"Serangan jantung",
+    "drug":"warfarin"
+  },
+  {
+    "disease":"Serangan jantung",
+    "drug":"atenolol"
+  },
+  {
+    "disease":"Serangan jantung",
+    "drug":"enoxaparin"
+  },
+  {
+    "disease":"Wasir tipe dimorfik",
+    "drug":"hydrocortisone"
+  },
+  {
+    "disease":"Wasir tipe dimorfik",
+    "drug":"lidocaine"
+  },
+  {
+    "disease":"Wasir tipe dimorfik",
+    "drug":"hydrocortisone \/ pramoxine"
+  },
+  {
+    "disease":"Wasir tipe dimorfik",
+    "drug":"phenylephrine"
+  },
+  {
+    "disease":"Wasir tipe dimorfik",
+    "drug":"dibucaine"
+  },
+  {
+    "disease":"Wasir tipe dimorfik",
+    "drug":"hydrocortisone \/ lidocaine"
+  },
+  {
+    "disease":"Wasir tipe dimorfik",
+    "drug":"pramoxine"
+  },
+  {
+    "disease":"Hepatitis A",
+    "drug":"immune globulin intramuscular"
+  },
+  {
+    "disease":"Hipertiroidisme",
+    "drug":"methimazole"
+  },
+  {
+    "disease":"Hipertiroidisme",
+    "drug":"propylthiouracil"
+  },
+  {
+    "disease":"Hipertiroidisme",
+    "drug":"potassium iodide"
+  },
+  {
+    "disease":"Hipertiroidisme",
+    "drug":"iodine \/ potassium iodide"
+  },
+  {
+    "disease":"Hipertiroidisme",
+    "drug":"sodium iodide-i-131"
+  },
+  {
+    "disease":"Hipoglikemia",
+    "drug":"glucagon"
+  },
+  {
+    "disease":"Hipoglikemia",
+    "drug":"diazoxide"
+  },
+  {
+    "disease":"Hipotiroidisme",
+    "drug":"levothyroxine"
+  },
+  {
+    "disease":"Hipotiroidisme",
+    "drug":"thyroid desiccated"
+  },
+  {
+    "disease":"Hipotiroidisme",
+    "drug":"liothyronine"
+  },
+  {
+    "disease":"Hipotiroidisme",
+    "drug":"liotrix"
+  },
+  {
+    "disease":"Impetigo",
+    "drug":"mupirocin"
+  },
+  {
+    "disease":"Impetigo",
+    "drug":"cefadroxil"
+  },
+  {
+    "disease":"Impetigo",
+    "drug":"cefuroxime"
+  },
+  {
+    "disease":"Impetigo",
+    "drug":"retapamulin"
+  },
+  {
+    "disease":"Impetigo",
+    "drug":"sulconazole"
+  },
+  {
+    "disease":"Impetigo",
+    "drug":"ozenoxacin"
+  },
+  {
+    "disease":"Impetigo",
+    "drug":"ammoniated mercury"
+  },
+  {
+    "disease":"Malaria",
+    "drug":"artemether \/ lumefantrine"
+  },
+  {
+    "disease":"Malaria",
+    "drug":"mefloquine"
+  },
+  {
+    "disease":"Malaria",
+    "drug":"doxycycline"
+  },
+  {
+    "disease":"Malaria",
+    "drug":"chloroquine"
+  },
+  {
+    "disease":"Malaria",
+    "drug":"hydroxychloroquine"
+  },
+  {
+    "disease":"Malaria",
+    "drug":"atovaquone \/ proguanil"
+  },
+  {
+    "disease":"Malaria",
+    "drug":"clindamycin"
+  },
+  {
+    "disease":"Malaria",
+    "drug":"primaquine"
+  },
+  {
+    "disease":"Malaria",
+    "drug":"atovaquone"
+  },
+  {
+    "disease":"Spondilosis servikal",
+    "drug":"ibuprofen"
+  },
+  {
+    "disease":"Spondilosis servikal",
+    "drug":"naproxen"
+  },
+  {
+    "disease":"Spondilosis servikal",
+    "drug":"acetaminophen"
+  },
+  {
+    "disease":"Tukak lambung",
+    "drug":"pantoprazole"
+  },
+  {
+    "disease":"Tukak lambung",
+    "drug":"famotidine"
+  },
+  {
+    "disease":"Tukak lambung",
+    "drug":"glycopyrrolate"
+  },
+  {
+    "disease":"Tukak lambung",
+    "drug":"chlordiazepoxide \/ clidinium"
+  },
+  {
+    "disease":"Tukak lambung",
+    "drug":"aluminum hydroxide"
+  },
+  {
+    "disease":"Tukak lambung",
+    "drug":"methscopolamine"
+  },
+  {
+    "disease":"Tukak lambung",
+    "drug":"propantheline"
+  },
+  {
+    "disease":"Tukak lambung",
+    "drug":"belladonna"
+  },
+  {
+    "disease":"Tukak lambung",
+    "drug":"clidinium"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"dexamethasone"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"diclofenac"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"celecoxib"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"aspirin"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"adalimumab"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"etanercept"
+  },
+  {
+    "disease":"Arthritis",
+    "drug":"golimumab"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"isoniazid \/ pyrazinamide \/ rifampin"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"ethambutol"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"isoniazid"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"rifampin"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"pyrazinamide"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"isoniazid \/ rifampin"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"levofloxacin"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"moxifloxacin"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"ciprofloxacin"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"streptomycin"
+  },
+  {
+    "disease":"Tuberkulosis",
+    "drug":"amikacin"
+  },
+  {
+    "disease":"Tifus",
+    "drug":"ciprofloxacin"
+  },
+  {
+    "disease":"Tifus",
+    "drug":"ceftriaxone"
+  },
+  {
+    "disease":"Tifus",
+    "drug":"azithromycin"
+  },
+  {
+    "disease":"Tifus",
+    "drug":"ampicillin"
+  },
+  {
+    "disease":"Varises",
+    "drug":"polidocanol"
+  },
+  {
+    "disease":"Varises",
+    "drug":"sodium tetradecyl sulfate"
+  },
+  {
+    "disease":"Hepatitis D",
+    "drug":"Obat spesifik untuk Hepatitis D tidak tersedia di dataset. Disarankan untuk konsultasi dengan dokter spesialis hati."
+  },
+  {
+    "disease":"Kelumpuhan (perdarahan otak)",
+    "drug":"Paralysis akibat brain hemorrhage memerlukan penanganan medis kompleks. Segera konsultasikan ke dokter saraf."
+  },
+  {
+    "disease":"Hepatitis E",
+    "drug":"immune globulin intramuscular"
+  }
+]

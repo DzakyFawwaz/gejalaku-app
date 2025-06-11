@@ -1,11 +1,10 @@
 {
-  "ALL_MODEL_SYMPTOMS": "../../../gejalaku-ml/symptoms.txt",
-  "MODEL_PATH": "../../../gejalaku-ml/tfjs_model/model.json",
-  "ARTIFACTS_DIR": "../../../gejalaku-ml/artifacts",
-  "SYMPTOMS_LIST": "../../../gejalaku-ml/artifacts/symptoms_list.json",
-  "LABELS": "../../../gejalaku-ml/artifacts/labels.json",
-  "DISEASE_DESCRIPTIONS": "../../../gejalaku-ml/dataset-clean/df_disease_description.json",
-  "DISEASE_PRECAUTIONS": "../../../gejalaku-ml/dataset-clean/df_disease_precaution.json",
-  "DISEASE_DRUGS": "../../../gejalaku-ml/dataset-clean/df_drug.json",
-  "DISEASE_INFO": "../../../gejalaku-ml/disease_info.csv"
+  "ALL_MODEL_SYMPTOMS": "../dataset/symptoms.txt",
+  "MODEL_PATH": "../tfjs_model/model.json",
+  "SYMPTOMS_LIST": "../dataset/artifacts/symptoms_list.json",
+  "LABELS": "../dataset/artifacts/labels.json",
+  "DISEASE_DESCRIPTIONS": "../dataset/df_disease_description.json",
+  "DISEASE_PRECAUTIONS": "../dataset/df_disease_precaution.json",
+  "DISEASE_DRUGS": "../dataset/df_drug.json",
+  "DISEASE_INFO": "../dataset/disease_info.csv"
 }
