@@ -3,17 +3,6 @@ export default class SummaryPresenter {
     this.view = view;
   }
 
-  // async loadData() {
-  //   try {
-  //     const summaryData = await this.summaryService.getSummaryResult();
-
-  //     this.view.updateSummaryData(summaryData);
-  //   } catch (error) {
-  //     this.view.showError('Failed to load summary results. Please try again.');
-  //     console.error('Error loading summary data:', error);
-  //   }
-  // }
-
   handlePrint() {
     try {
       window.print();
@@ -24,7 +13,7 @@ export default class SummaryPresenter {
   }
 
   navigateToHome() {
-    this.navigateTo('/');
+    window.location.hash = '/';
   }
 
   navigateToCheckSymptom() {

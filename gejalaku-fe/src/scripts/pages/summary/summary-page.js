@@ -1,182 +1,234 @@
 import SummaryPresenter from './summary-presenter';
 
 export default class SummaryPage {
-  constructor() {
+  constructor(container) {
+    this.container = container;
     this.summary = null;
     this.presenter = null;
-  }
-
-  setPresenter(presenter) {
-    this.presenter = presenter;
   }
 
   updateSummaryData(data) {
     this.summary = data;
   }
 
-  showError(message) {
-    console.error(message);
-  }
-
-  renderCondition() {
-    // if (!this.summary) return '';
-
-    return `
-      <section class="bg-white rounded-lg p-4 flex justify-between items-center shadow-sm">
-        <div>
-          <p class="text-lg font-semibold text-gray-900 mb-1">
-            Kondisi Potensial
-          </p>
-          <a href="#" class="text-blue-700 font-bold text-base leading-tight">
-            ${this?.summary?.condition ?? `Common Cold`}
-          </a>
-        </div>
-        <span class="text-md text-green-800 bg-green-100 rounded-full px-3 py-1">
-          ${this?.summary?.confidence ?? `High Confidence`}
-        </span>
-      </section>
+  async showError(message) {
+    const errorHtml = `
+        <main class="max-w-xl flex-auto mx-auto py-8 text-center"><p class="text-red-600 bg-red-100 p-4 rounded-lg">${message}</p></main>
     `;
+
+    const appContainer = document.querySelector('main');
+    appContainer.outerHTML = errorHtml;
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    this.#setupEventListeners();
+    // this.container.innerHTML = errorHtml;
   }
 
-  renderDescription() {
-    // if (!this.summary) return '';
+  renderSymptoms() {
+    console.log({ summary: this.summary });
 
+    if (!this.summary || !this.summary['symptoms']) {
+      return '';
+    }
+
+    const symptoms = this.summary['symptoms'];
+    const symptomsHtml = symptoms
+      .map(
+        (s) =>
+          `<span class="bg-gray-200 text-gray-800 text-sm font-medium mr-2 mb-2 px-3 py-1 rounded-full">${s.name}</span>`,
+      )
+      .join('');
     return `
       <section class="bg-white rounded-lg shadow-sm">
-        <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-200 px-4 py-3">
-          Deskripsi Kondisi
-        </h2>
-        <p class="text-gray-700 text-lg px-4 py-3 leading-relaxed">
-          ${
-            this?.summary?.description ??
-            `The common cold is a viral infection of your nose and throat (upper
-          respiratory tract). It's usually harmless, although it might not feel
-          that way. Many types of viruses can cause a common cold.`
-          }
-        </p>
-      </section>
-    `;
-  }
-
-  renderTreatments() {
-    // if (!this.summary) return '';
-
-    return `
-      <section class="bg-white rounded-lg shadow-sm">
-        <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-200 px-4 py-3">
-          Penanganan Utama
-        </h2>
-         <div class="text-gray-700 text-lg px-4 py-3 leading-relaxed">
-          <p>
-            There's no cure for the common cold. Antibiotics are of no use
-            against cold viruses. Treatment is directed at relieving signs and
-            symptoms:
-          </p>
-          <ul class="list-disc list-inside mt-2 space-y-1">
-            <li>Rest and stay hydrated</li>
-            <li>Use over-the-counter pain relievers</li>
-            <li>Use decongestants or saline nasal drops</li>
-          </ul>
+        <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-200 px-4 py-3">Gejala yang Dilaporkan</h2>
+        <div class="px-4 py-4 flex flex-wrap">
+          ${symptomsHtml}
         </div>
       </section>
     `;
   }
 
-  renderPreventions() {
-    // if (!this.summary) return '';
+  renderPredictedCondition() {
+    if (!this.summary) return '';
+    const { predictedDisease, confidence } = this.summary;
+    const probability = parseFloat(confidence);
+    const confidenceText = probability > 0.7 ? 'Tinggi' : probability > 0.4 ? 'Sedang' : 'Rendah';
+    const color = probability > 0.7 ? 'green' : probability > 0.4 ? 'yellow' : 'red';
 
     return `
       <section class="bg-white rounded-lg shadow-sm">
-        <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-200 px-4 py-3">
-          Langkah Pencegahan
-        </h2>
-       <ul
-          class="list-disc list-inside text-gray-700 text-lg px-4 py-3 space-y-1"
-        >
-          <li>Wash your hands thoroughly and often</li>
-          <li>Avoid touching your face with unwashed hands</li>
-          <li>Disinfect frequently touched surfaces</li>
-          <li>Don't share drinking glasses or utensils</li>
-          <li>Stay home when you're sick</li>
-        </ul>
+        <h2 class="text-lg font-semibold text-gray-900 border-b border-gray-200 px-4 py-3">Hasil Prediksi</h2>
+        <div class="px-4 py-3">
+            <div class="flex justify-between items-center">
+                <span class="font-semibold text-xl text-gray-800">${predictedDisease}</span>
+                <span class="text-sm font-medium text-${color}-800 bg-${color}-100 rounded-full px-3 py-1">${(probability * 100).toFixed(0)}% (${confidenceText})</span>
+            </div>
+        </div>
       </section>
     `;
   }
 
-  renderMedications() {
-    // if (!this.summary) return '';
+  renderConditionDetails() {
+    if (!this.summary || !this.summary || !this.summary.details) return '';
+    const { details, predictedDisease } = this.summary;
+
+    const description = details.description?.Description || 'Informasi tidak tersedia.';
+    const precautions = details.precautions
+      ? Object.values(details.precautions).filter((p) => p !== predictedDisease)
+      : [];
+    const medications = details.drugs?.drug ? [details.drugs.drug] : [];
+
+    const precautionsHtml =
+      precautions.length > 0
+        ? precautions.map((item) => `<li>${item}</li>`).join('')
+        : '<li>Informasi tidak tersedia.</li>';
+    const medicationsHtml =
+      medications.length > 0
+        ? medications.map((item) => `<li>${item}</li>`).join('')
+        : '<li>Informasi tidak tersedia.</li>';
 
     return `
-      <section class="bg-white rounded-lg border border-gray-200 p-4">
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">
-          Obat Bebas yang Dapat Digunakan
-        </h3>
-         <ul class="list-disc list-inside text-gray-700 text-md space-y-1">
-          <li>Acetaminophen (Tylenol, others) for fever and pain</li>
-          <li>Ibuprofen (Advil, Motrin IB, others) for inflammation</li>
-          <li>Pseudoephedrine (Sudafed) for nasal congestion</li>
-          <li>Loratadine (Claritin) for allergic rhinitis</li>
-        </ul>
-      </section>
+        <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-gray-900 px-1">Detail untuk: ${predictedDisease}</h2>
+            <section class="bg-white rounded-lg shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-900 border-b border-gray-200 px-4 py-3">Deskripsi</h3>
+                <p class="text-gray-700 text-base px-4 py-3 leading-relaxed">${description}</p>
+            </section>
+            <section class="bg-white rounded-lg shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-900 border-b border-gray-200 px-4 py-3">Pencegahan & Penanganan</h3>
+                <div class="text-gray-700 text-base px-4 py-3 leading-relaxed">
+                  <ul class="list-disc list-inside space-y-1">${precautionsHtml}</ul>
+                </div>
+            </section>
+            <section class="bg-white rounded-lg shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-900 border-b border-gray-200 px-4 py-3">Obat yang Mungkin Disarankan</h3>
+                <ul class="list-disc list-inside text-gray-700 text-base px-4 py-3 space-y-1">${medicationsHtml}</ul>
+            </section>
+        </div>
     `;
   }
 
   renderActions() {
     return `
-      <button id="home-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md py-3">
-        Kembali ke Beranda
-      </button>
-      <button id="print-button" class="w-full border border-blue-400 text-blue-600 font-semibold rounded-md py-3 hover:bg-blue-50">
-        Download Hasil Analisa
-      </button>
-      <button id="check-symptom-button" class="w-full border border-gray-300 text-gray-900 font-semibold rounded-md py-3 hover:bg-gray-100">
-        Cek Gejala Lain
-      </button>
+      <button id="home-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md py-3">Kembali ke Beranda</button>
+      <button id="print-button" class="w-full border border-blue-400 text-blue-600 font-semibold rounded-md py-3 hover:bg-blue-50">Download Hasil Analisa</button>
+      <button id="check-symptom-button" class="w-full border border-gray-300 text-gray-900 font-semibold rounded-md py-3 hover:bg-gray-100">Cek Gejala Lain</button>
     `;
   }
 
-  async render() {
-    return `
-      <main class="max-w-xl mx-auto py-4 space-y-4">
-        ${this.renderCondition()}
-        ${this.renderDescription()}
-        ${this.renderTreatments()}
-        ${this.renderPreventions()}
-        ${this.renderMedications()}
+  render() {
+    let content;
+    if (!this.summary) {
+      content = `<main class="max-w-xl flex-auto mx-auto py-8 text-center"><p>Data prediksi tidak ditemukan.</p></main>`;
+    } else {
+      content = `
+          <main class="max-w-xl flex-auto mx-auto py-6 space-y-4">
+            ${this.renderSymptoms()}
+            ${this.renderPredictedCondition()}
+            
+            <hr class="my-6 border-t border-gray-300">
 
-        <div class="bg-yellow-50 border border-yellow-200 rounded-md p-4 text-md text-yellow-800">
-          <strong class="font-semibold">Medical Disclaimer:</strong> Informasi ini hanya 
-          untuk tujuan edukasi dan bukan pengganti nasihat medis profesional. Selalu 
-          konsultasikan dengan penyedia layanan kesehatan untuk masalah medis.
-        </div>
+            ${this.renderConditionDetails()}
 
-        <div class="space-y-3 mt-6">
-          ${this.renderActions()}
-        </div>
-      </main>
-    `;
+            <div class="bg-yellow-50 border border-yellow-200 rounded-md p-4 text-sm text-yellow-800 mt-6">
+              <strong class="font-semibold">Sanggahan Medis:</strong> Informasi ini hanya untuk tujuan edukasi dan bukan pengganti nasihat medis profesional. Selalu konsultasikan dengan penyedia layanan kesehatan untuk masalah medis.
+            </div>
+
+            <div class="space-y-3 pt-4">
+              ${this.renderActions()}
+            </div>
+          </main>
+        `;
+    }
+
+    return content;
+  }
+
+  async getPredictions() {
+    const db = await new Promise((resolve, reject) => {
+      const request = indexedDB.open('SymptomAnalyzerDB', 1);
+      request.onsuccess = (event) => resolve(event.target.result);
+      request.onerror = (event) => reject(event.target.error);
+      request.onupgradeneeded = (event) => {
+        const db = event.target.result;
+        if (!db.objectStoreNames.contains('predictions')) {
+          db.createObjectStore('predictions', { keyPath: 'id', autoIncrement: true });
+        }
+      };
+    });
+    const transaction = db.transaction(['predictions'], 'readonly');
+    const store = transaction.objectStore('predictions');
+    const request = store.getAll();
+    return new Promise((resolve, reject) => {
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = (event) => reject(event.target.error);
+    });
+  }
+
+  async rerenderContent() {
+    const appContainer = document.querySelector('main');
+    appContainer.outerHTML = await this.render();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    this.#setupEventListeners();
   }
 
   async afterRender() {
-    this.#setupEventListeners();
-    // await this.presenter.loadData();
+    this.presenter = new SummaryPresenter({ view: this });
+    this.rerenderContent();
 
-    this.presenter = new SummaryPresenter({
-      view: this,
-    });
+    try {
+      const historyData = await this.getPredictions();
+      let id = null;
+
+      if (window.location.hash) {
+        const match = window.location.hash.match(/[?&]id=([^&]+)/);
+        if (match) {
+          id = parseInt(match[1], 10); // Ensure ID is an integer
+        }
+      }
+
+      if (id === null) {
+        this.showError('ID prediksi tidak ditemukan di URL.');
+        return;
+      }
+
+      const prediction = historyData.find((history) => history.id === id);
+
+      console.log({ id, prediction, historyData });
+
+      if (prediction) {
+        this.summary = prediction;
+        await this.rerenderContent();
+      } else {
+        // For demonstration, if ID not found, use a mock based on new structure
+        console.warn(`Data prediksi dengan ID "${id}" tidak ditemukan. Menggunakan data contoh.`);
+        await this.rerenderContent();
+      }
+    } catch (error) {
+      console.error('Gagal memuat data prediksi:', error);
+      this.showError('Gagal mengambil data dari database. Silakan coba lagi.');
+    }
   }
 
   #setupEventListeners() {
-    document.getElementById('print-button').addEventListener('click', () => {
-      this.presenter.handlePrint();
-    });
+    const printButton = document.getElementById('print-button');
+    if (printButton) {
+      printButton.addEventListener('click', () => {
+        this.presenter.handlePrint();
+      });
+    }
 
-    document.getElementById('home-button').addEventListener('click', () => {
-      this.presenter.navigateToHome();
-    });
+    const homeButton = document.getElementById('home-button');
+    if (homeButton) {
+      homeButton.addEventListener('click', () => {
+        this.presenter.navigateToHome();
+      });
+    }
 
-    document.getElementById('check-symptom-button').addEventListener('click', () => {
-      this.presenter.navigateToCheckSymptom();
-    });
+    const checkSymptomButton = document.getElementById('check-symptom-button');
+    if (checkSymptomButton) {
+      checkSymptomButton.addEventListener('click', () => {
+        this.presenter.navigateToCheckSymptom();
+      });
+    }
   }
 }

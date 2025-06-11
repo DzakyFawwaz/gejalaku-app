@@ -15,7 +15,7 @@ export default class DashboardPage {
               <a
                 href="#/check-symptom"
                 id="cek-gejala-btn"
-                class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition transform hover:-translate-y-1 shadow-md"
+                class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition transform hover:-translate-y-1 shadow-md pointer"
               >
                 <i class="fas fa-search mr-2"></i> Cek Gejala Sekarang
               </a>
@@ -84,7 +84,7 @@ export default class DashboardPage {
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           <!-- Feature 1 -->
           <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 symptom-card">
              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
@@ -107,17 +107,7 @@ export default class DashboardPage {
             </p>
           </div>
 
-          <!-- Feature 3 -->
-          <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 symptom-card">
-            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <i class="fas fa-user-md text-green-600 text-xl"></i>
-              </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Rekomendasi Medis</h3>
-            <p class="text-gray-600">
-              Terhubung dengan dokter berpengalaman untuk konsultasi lanjutan jika diperlukan.
-            </p>
-          </div>
-
+        
           <!-- Feature 4 -->
           <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 symptom-card">
             <div class="w-12 h-12 bg-pink-100 rounded-full bg-primary-100 flex items-center justify-center mb-4">
@@ -129,16 +119,7 @@ export default class DashboardPage {
             </p>
           </div>
 
-          <!-- Feature 5 -->
-          <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 symptom-card">
-            <div class="w-12 h-12 bg-gray-100 rounded-full bg-primary-100 flex items-center justify-center mb-4">
-              <i class="fas fa-shield-alt text-gray-600 text-xl"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Privasi Terjamin</h3>
-            <p class="text-gray-600">
-              Data Anda dienkripsi end-to-end dan tidak pernah dibagikan tanpa izin Anda.
-            </p>
-          </div>
+        
 
           <!-- Feature 6 -->
           <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 symptom-card">
@@ -279,7 +260,7 @@ export default class DashboardPage {
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 bg-green-200 rounded-full mr-4"></div>
                 <div>
-                  <h4 class="font-semibold">Siti Nurhayati</h4>
+                  <h4 class="font-semibold">Hafizha Aghnia</h4>
                   <div class="flex text-yellow-400">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -296,7 +277,7 @@ export default class DashboardPage {
               <div class="flex items-center mb-4">
                 <div class="w-12 h-12 bg-purple-200 rounded-full mr-4"></div>
                 <div>
-                  <h4 class="font-semibold">Ahmad Fauzi</h4>
+                  <h4 class="font-semibold">Agustina Inka</h4>
                   <div class="flex text-yellow-400">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -316,15 +297,16 @@ export default class DashboardPage {
       <section class="py-16 bg-blue-600">
         <div class="max-w-4xl mx-auto px-4 text-center">
           <h2 class="text-3xl font-bold text-white mb-4">Siap untuk menjaga kesehatan Anda?</h2>
-          <p class="text-blue-100 mb-8">Daftar sekarang dan mulai perjalanan kesehatan Anda bersama GejalaKu.</p>
+          <p class="text-blue-100 mb-8">Mulai perjalanan kesehatan Anda bersama GejalaKu.</p>
           <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center">
-            <button
+            <button 
+              id="register-btn"
               class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-md hover:bg-blue-50 transition shadow-md"
             >
               Daftar Sekarang
             </button>
             <button
-              id="cek-gejala-btn-2"
+              id="cek-gejala-btn-footer"
               class="border border-white text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition"
             >
               Cek Gejala
@@ -338,5 +320,26 @@ export default class DashboardPage {
 
   async afterRender() {
     document.getElementById('main-content');
+
+    const isLoggedIn = !!localStorage.getItem('accessToken');
+    if (isLoggedIn) {
+      const registerBtn = document.getElementById('register-btn');
+      if (registerBtn) {
+        registerBtn.style.display = 'none';
+      }
+    }
+    const registerBtn = document.getElementById('register-btn');
+    if (registerBtn) {
+      registerBtn.onclick = () => {
+        window.location.hash = '/register';
+      };
+    }
+
+    const cekGejalaBtnFooter = document.getElementById('cek-gejala-btn-footer');
+    if (cekGejalaBtnFooter) {
+      cekGejalaBtnFooter.onclick = () => {
+        window.location.hash = '/check-symptom';
+      };
+    }
   }
 }

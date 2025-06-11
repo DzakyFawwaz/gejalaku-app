@@ -70,14 +70,12 @@ export default class LoginPage {
 
   showErrorMessage(message) {
     const errorMessage = document.createElement('div');
-    errorMessage.textContent = message;
+    errorMessage.innerHTML = message;
     errorMessage.className =
-      'bg-red-50 border border-red-400 text-red-600 font-semibold text-sm p-4 rounded-xl z-50 mt-4';
+      'error-toast bg-red-50 border border-red-400 text-red-600 font-semibold text-sm p-4 rounded-xl z-50 mt-4';
     document.getElementById('login-form').appendChild(errorMessage);
 
-    setTimeout(() => {
-      errorMessage.remove();
-    }, 3000);
+    errorMessage.remove();
   }
 
   #setupForm() {

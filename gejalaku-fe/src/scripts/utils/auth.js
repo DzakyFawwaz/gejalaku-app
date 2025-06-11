@@ -57,7 +57,7 @@ export function checkAuthenticatedRoute(page) {
   const isLogin = !!getAccessToken();
 
   if (!isLogin) {
-    location.hash = '/login';
+    location.hash = '/login?c=true';
     return null;
   }
 

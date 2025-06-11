@@ -51,7 +51,20 @@ export default class AnalyzingSymptomPage {
 
   afterRender() {
     setTimeout(() => {
-      //   window.location.hash = '/summary';
-    }, 3000);
+      let id = null;
+
+      if (window.location.hash) {
+        const match = window.location.hash.match(/[?&]id=([^&]+)/);
+        if (match) {
+          id = parseInt(match[1], 10); // Ensure ID is an integer
+        }
+      }
+
+      if (id) {
+        window.location.hash = `/summary?id=${id}`;
+      } else {
+        window.location.hash = '/summary';
+      }
+    }, 1000);
   }
 }

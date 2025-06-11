@@ -20,9 +20,16 @@ export default class LoginPresenter {
       this.#authModel.putAccessToken(response.data.accessToken);
       this.#authModel.showSuccessMessage('Login successful!');
 
-      setTimeout(() => {
-        window.location.hash = '/';
-      }, 1000);
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('c') === 'true') {
+        setTimeout(() => {
+          window.location.hash = '/check-symptom';
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          window.location.hash = '/';
+        }, 1000);
+      }
     } catch (error) {
       console.error('showReportDetailAndMap: error:', error);
     }

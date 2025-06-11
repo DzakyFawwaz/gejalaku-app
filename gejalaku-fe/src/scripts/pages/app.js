@@ -1,9 +1,4 @@
 import { getActiveRoute } from '../routes/url-parser';
-// import {
-//   generateAuthenticatedNavigationListTemplate,
-//   generateMainNavigationListTemplate,
-//   generateUnauthenticatedNavigationListTemplate,
-// } from "../templates";
 import { setupSkipToContent, transitionHelper } from '../utils';
 import { getAccessToken, getLogout } from '../utils/auth';
 import { routes } from '../routes/routes';
@@ -30,28 +25,6 @@ export default class App {
 
   #init() {
     setupSkipToContent(this.#skipLinkButton, this.#content);
-    // this.#setupDrawer();
-  }
-
-  #setupDrawer() {
-    this.#drawerButton.addEventListener('click', () => {
-      this.#drawerNavigation.classList.toggle('open');
-    });
-
-    document.body.addEventListener('click', (event) => {
-      const isTargetInsideDrawer = this.#drawerNavigation.contains(event.target);
-      const isTargetInsideButton = this.#drawerButton.contains(event.target);
-
-      if (!(isTargetInsideDrawer || isTargetInsideButton)) {
-        this.#drawerNavigation.classList.remove('open');
-      }
-
-      this.#drawerNavigation.querySelectorAll('a').forEach((link) => {
-        if (link.contains(event.target)) {
-          this.#drawerNavigation.classList.remove('open');
-        }
-      });
-    });
   }
 
   #setupNavigationList() {
@@ -61,10 +34,13 @@ export default class App {
 
     navListMain.innerHTML = generateUnauthenticatedNavigationListMainTemplate();
     document.getElementById('navlist-logo').addEventListener('click', () => {
-      window.location.hash = '/';
+      if (window.location.hash === '#/') {
+        window.location.reload();
+      } else {
+        window.location.hash = '/';
+      }
     });
 
-    // User not log in
     if (!isLogin) {
       navList.innerHTML = generateUnauthenticatedNavigationListTemplate();
 
@@ -102,9 +78,9 @@ export default class App {
 
   async renderPage() {
     const url = getActiveRoute();
-    const route = routes[url];
+    const urlWithParams = url.split('?');
+    const route = routes[urlWithParams.length == 1 ? url : urlWithParams[0]];
 
-    // Get page instance
     const page = route();
 
     const transition = transitionHelper({

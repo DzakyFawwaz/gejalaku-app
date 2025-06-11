@@ -8,16 +8,11 @@ import AnalyzingSymptomPage from '../pages/analyzing/analyzing-page';
 import SummaryPage from '../pages/summary/summary-page';
 
 export const routes = {
-  //   "/login": () => checkUnauthenticatedRouteOnly(new LoginPage()),
-  //   "/register": () => checkUnauthenticatedRouteOnly(new RegisterPage()),
-
-  //   "/": () => checkAuthenticatedRoute(new HomePage()),
-  //   "/new": () => checkAuthenticatedRoute(new NewPage()),
-  //   "/reports/:id": () => checkAuthenticatedRoute(new ReportDetailPage()),
-  //   "/bookmark": () => checkAuthenticatedRoute(new BookmarkPage()),
   '/login': () => checkUnauthenticatedRouteOnly(new LoginPage()),
   '/register': () => checkUnauthenticatedRouteOnly(new RegisterPage()),
+
   '/': () => new DashboardPage(),
+  '/dashboard': () => new DashboardPage(),
   '/about': () => new AboutPage(),
   '/check-symptom': () => checkAuthenticatedRoute(new CheckSymptomPage()),
   '/analyzing': () => checkAuthenticatedRoute(new AnalyzingSymptomPage()),
