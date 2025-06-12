@@ -1,13 +1,14 @@
-import { getAllSymptomsByBodyPart, predictSymptoms } from '../../data/predict';
+import CheckSymptomPresenter from './check-symptom-presenter';
+import * as PredictApi from '../../data/predict-api';
 
 export default class CheckSymptomPage {
-  constructor() {
-    this.allSymptoms = [];
-    this.selectedSymptoms = [];
-    this.symptomsByCategory = null;
-    this.symptomSearchQuery = '';
-    this.isDropdownVisible = false;
-  }
+  allSymptoms = [];
+  selectedSymptoms = [];
+  symptomsByCategory = [];
+  symptomSearchQuery = '';
+  isDropdownVisible = false;
+
+  #presenter = null;
 
   renderSelectedSymptoms() {
     if (this.selectedSymptoms.length === 0) {
@@ -37,7 +38,6 @@ export default class CheckSymptomPage {
         const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
 
         const symptomsHtml = symptoms
-          .slice(0, 15) // Limit symptoms per category for cleaner UI
           .map((symptom) => {
             const isSelected = this.selectedSymptoms.some((s) => s.id === symptom.id);
             return `
@@ -71,7 +71,6 @@ export default class CheckSymptomPage {
   }
 
   renderAutocompleteSuggestions() {
-    // Filter all symptoms based on the search query
     const filtered = this.allSymptoms.filter((s) =>
       s.name.toLowerCase().includes(this.symptomSearchQuery.toLowerCase()),
     );
@@ -98,11 +97,8 @@ export default class CheckSymptomPage {
   async render() {
     return `     
       <main class="w-full max-w-7xl mx-auto flex-auto py-8 lg:py-12 px-4 sm:px-6 lg:px-8">
-        <!-- Main Content Grid -->
         <div class="grid lg:grid-cols-5 lg:gap-12">
-        <!-- Left Side (Inputs) -->
         <div class="lg:col-span-3 flex flex-col gap-10">
-          <!-- Page Header -->
           <div class="mb-4">
           <h1 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Cek Gejala Kesehatan Anda</h1>
           <p class="text-gray-600 mt-3 text-lg">Pilih gejala yang Anda rasakan untuk mendapatkan analisa kemungkinan penyebabnya. Semakin banyak gejala, semakin akurat hasilnya.</p>
@@ -142,7 +138,6 @@ export default class CheckSymptomPage {
           </div>
         </div>
 
-        <!-- Right Side (Selected Symptoms) -->
         <aside class="lg:col-span-2 mt-10 lg:mt-0">
           <div class="bg-white/60 backdrop-blur-md p-6 rounded-xl shadow-md sticky top-8">
           <div class="flex justify-between items-center mb-5">
@@ -176,50 +171,35 @@ export default class CheckSymptomPage {
   }
 
   async afterRender() {
-    // Fetch symptoms jika belum ada
-    try {
-      const res = await getAllSymptomsByBodyPart();
-      if (res.ok) {
-        // Asumsikan data berupa array string
-        this.symptomsByCategory = data['symptomsByBodyPart'];
-        // Ambil semua gejala dari semua body part kecuali 'umum'
-        this.allSymptoms = Object.entries(data['symptomsByBodyPart'])
-          .filter(([key]) => key !== 'umum')
-          .flatMap(([, symptoms]) => symptoms);
+    this.#presenter = new CheckSymptomPresenter({
+      view: this,
+      model: PredictApi,
+    });
 
-        console.log({ allSymptoms: this.allSymptoms, data });
-      }
-    } catch (e) {
-      // Optional: handle error
-      console.log({ error: e });
-      this.symptomsByCategory = null;
-    }
-    // Rerender setelah fetch
+    await this.#presenter.fetchSymptoms();
+
     document.querySelector('main').outerHTML = await this.render();
     this.#setup();
   }
 
   #setup() {
-    // Add symptom from common symptoms
-
     document.querySelectorAll('.common-symptom-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const symptom = JSON.parse(btn.getAttribute('data-symptom'));
         const isSelected = this.selectedSymptoms.some((s) => s.id === symptom.id);
 
         if (isSelected) {
-          this.removeSymptom(symptom.id);
+          this.#presenter.removeSymptom(symptom.id);
         } else {
-          this.addSymptom(symptom);
+          this.#presenter.addSymptom(symptom);
         }
       });
     });
 
-    // Remove a symptom from the selected list
     document.querySelectorAll('.remove-symptom-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const symptomId = btn.getAttribute('data-symptom-id');
-        this.removeSymptom(symptomId);
+        this.#presenter.removeSymptom(symptomId);
       });
     });
 
@@ -230,7 +210,7 @@ export default class CheckSymptomPage {
     if (input && suggestionsContainer) {
       const updateSuggestions = () => {
         suggestionsContainer.innerHTML = this.renderAutocompleteSuggestions();
-        activeIndex = -1; // Reset active index on update
+        activeIndex = -1;
       };
 
       const setActiveSuggestion = () => {
@@ -294,105 +274,19 @@ export default class CheckSymptomPage {
         if (item && item.dataset.selected === 'false') {
           const symptom = JSON.parse(item.getAttribute('data-symptom'));
           this.symptomSearchQuery = '';
-          this.addSymptom(symptom);
+          this.#presenter.addSymptom(symptom);
         }
       });
     }
 
     document.getElementById('check-symptom-button').addEventListener('click', async () => {
-      try {
-        const res = await predictSymptoms();
-
-        if (res.ok) {
-          const predictionData = {
-            ...data,
-            timestamp: new Date().toISOString(),
-          };
-          const savedId = await this.#savePrediction(predictionData);
-          window.location.hash = `/summary?id=${savedId}`;
-        }
-      } catch (e) {
-        console.log({ error: e });
-        alert('Gagal menyimpan hasil analisa. Silakan coba lagi.');
-      }
+      this.#presenter.analyzeSymptoms();
     });
-  }
-
-  // async rerender() {
-  //   document.querySelector('main').outerHTML = await this.render();
-  //   this.afterRender();
-  // }
-
-  /**
-   * Adds a symptom to the selected list if it's not already there.
-   */
-  addSymptom(symptom) {
-    if (symptom && !this.selectedSymptoms.some((s) => s.id === symptom.id)) {
-      this.selectedSymptoms.push(symptom);
-      this.rerender();
-    }
-  }
-
-  /**
-   * Removes a symptom from the selected list by its ID.
-   */
-  removeSymptom(symptomId) {
-    this.selectedSymptoms = this.selectedSymptoms.filter((s) => s.id !== symptomId);
-    this.rerender();
-  }
-
-  /**
-   * Sets up and opens the IndexedDB database.
-   * @returns {Promise<IDBDatabase>} A promise that resolves with the database instance.
-   */
-  #setupDB() {
-    return new Promise((resolve, reject) => {
-      const request = indexedDB.open('SymptomAnalyzerDB', 1);
-
-      request.onupgradeneeded = (event) => {
-        const db = event.target.result;
-        if (!db.objectStoreNames.contains('predictions')) {
-          db.createObjectStore('predictions', { keyPath: 'id', autoIncrement: true });
-        }
-      };
-
-      request.onsuccess = (event) => {
-        resolve(event.target.result);
-      };
-
-      request.onerror = (event) => {
-        console.error('Database error:', event.target.errorCode);
-        reject(event.target.error);
-      };
-    });
-  }
-
-  async #savePrediction(predictionData) {
-    try {
-      const db = await this.#setupDB();
-      const transaction = db.transaction(['predictions'], 'readwrite');
-      const store = transaction.objectStore('predictions');
-      const request = store.add(predictionData);
-
-      return new Promise((resolve, reject) => {
-        request.onsuccess = () => {
-          console.log('Prediction saved to IndexedDB with ID:', request.result);
-          resolve(request.result);
-        };
-        request.onerror = (event) => {
-          console.error('Error saving prediction:', event.target.error);
-          reject(event.target.error);
-        };
-      });
-    } catch (error) {
-      console.error('Could not save prediction to DB:', error);
-    }
   }
 
   async rerender() {
     const appContainer = document.querySelector('main');
     appContainer.outerHTML = await this.render();
-    // We need to wait for the DOM to update before attaching new listeners
     await new Promise((resolve) => setTimeout(resolve, 0));
     this.#setup();
   }
