@@ -1,6 +1,7 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [{ "source": "/(.*)", "destination": "/app.js" }],
   "headers": [
     {
       "source": "/(.*)",
@@ -10,13 +11,6 @@
           "value": "*"
         }
       ]
-    }
-  ],
-  "rewrites": [{ "source": "/(.*)", "destination": "app.js" }],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.js"
     }
   ]
 }
