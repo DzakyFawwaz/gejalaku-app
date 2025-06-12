@@ -7,22 +7,11 @@ const config = JSON.parse(
 );
 const modelPath = `file://${path.resolve(__dirname, config.MODEL_PATH)}`;
 
-const ALL_MODEL_SYMPTOMS = path.resolve(__dirname, config.ALL_MODEL_SYMPTOMS);
-const allSymptomsRaw = fs.readFileSync(ALL_MODEL_SYMPTOMS, "utf8");
-const ALL_MODEL_SYMPTOMS_ARRAY = allSymptomsRaw
-  .split("\n")
-  .map((s) => s.trim())
-  .filter(Boolean);
-
 let model;
 let symptomsList;
 let labelMapping;
 let diseaseInfo;
 
-/**
- * Memuat semua artefak, data penyakit, dan model ML ke dalam memori.
- * Fungsi ini harus dipanggil sekali saat server dimulai.
- */
 const initializeService = async () => {
   console.log("🚀 Memulai inisialisasi layanan prediksi...");
   try {
@@ -175,6 +164,5 @@ module.exports = {
   getAllSymptoms,
   predict,
   symptomsList,
-  ALL_MODEL_SYMPTOMS_ARRAY,
   getAllSymptomsByBodyPart,
 };
