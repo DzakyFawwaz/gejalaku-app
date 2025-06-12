@@ -16,7 +16,7 @@ export default class CheckSymptomPresenter {
 
         this.#view.symptomsByCategory = sympomsByBodypart;
         this.#view.allSymptoms = Object.entries(sympomsByBodypart)
-          .filter(([key]) => key !== 'umum')
+          // .filter(([key]) => key !== 'umum')
           .flatMap(([, symptoms]) => symptoms);
       } else {
         console.warn(`Fetch symptoms failed: response not ok`);
