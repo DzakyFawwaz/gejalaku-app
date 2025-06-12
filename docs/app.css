@@ -88,4 +88,10 @@
   }
 }
 
+@media (max-width: 500px) {
+  #print-button {
+    display: none;
+  }
+}
+
 
