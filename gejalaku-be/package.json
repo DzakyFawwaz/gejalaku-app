@@ -13,7 +13,7 @@
     "delete:pm2": "pm2 delete hapi-app",
     "logs:pm2": "pm2 logs hapi-app",
     "build": "echo \"No build step required\"",
-    "vercel-build": "npm run build"
+    "vercel-build": "npm run build --output public"
   },
   "repository": {
     "type": "git",
