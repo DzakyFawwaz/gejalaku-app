@@ -88,7 +88,8 @@ export default class AboutPage {
                     <ul class="list-disc pl-5 text-gray-700 space-y-2">
                         <li>Frontend: HTML, CSS, JavaScript dengan Tailwind CSS</li>
                         <li>Backend: Node.js dengan framework Hapi</li>
-                        <li>Database: MySQL untuk menyimpan data pengguna dengan aman</li>
+                        <li>Machine Learning: Tensorflow</li>
+                        <li>Database: IndexDB untuk menyimpan data pengguna dengan aman</li>
                         <li>Webpack untuk bundling dan optimasi aplikasi</li>
                     </ul>
                 </div>
@@ -108,7 +109,7 @@ export default class AboutPage {
                 <div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Analisis Gejala Cepat</h3>
                     <p class="text-gray-700">
-                        Masukkan gejala yang Anda alami dan dapatkan hasil analisis dalam waktu kurang dari 2 menit dengan tingkat akurasi mencapai 95%.
+                        Masukkan gejala yang Anda alami dan dapatkan hasil analisis dalam waktu kurang dari 2 menit dengan tingkat akurasi mencapai 90%.
                     </p>
                 </div>
             </div>
@@ -118,36 +119,13 @@ export default class AboutPage {
                     <i class="fas fa-book-medical text-blue-600 text-xl"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Informasi Penyakit Lengkap</h3>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Informasi Penyakit</h3>
                     <p class="text-gray-700">
                         Akses informasi lengkap tentang berbagai penyakit, termasuk deskripsi, gejala umum, langkah pencegahan, dan opsi pengobatan awal.
                     </p>
                 </div>
             </div>
             
-            <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
-                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                    <i class="fas fa-lock text-blue-600 text-xl"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Keamanan Data</h3>
-                    <p class="text-gray-700">
-                        Data Anda aman dan terenkripsi. GejalaKu menjamin privasi pengguna dan keamanan informasi kesehatan Anda.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="bg-white p-6 rounded-lg shadow-md flex items-start">
-                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                    <i class="fas fa-user-md text-blue-600 text-xl"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Didukung oleh Tenaga Medis</h3>
-                    <p class="text-gray-700">
-                        Informasi kesehatan yang disediakan oleh GejalaKu telah dikonsultasikan dengan para profesional medis untuk memastikan keakuratan dan relevansi.
-                    </p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -167,7 +145,7 @@ export default class AboutPage {
                 <div>
                     <h3 class="text-lg font-semibold text-gray-800 mb-2">Bagaimana tingkat akurasi analisis GejalaKu?</h3>
                     <p class="text-gray-700">
-                        Model Machine Learning kami memiliki tingkat akurasi sekitar 95% berdasarkan dataset yang telah diverifikasi. Namun, hasilnya tetap bersifat informatif dan bukan diagnosis medis resmi.
+                        Model Machine Learning kami memiliki tingkat akurasi hampir 90% berdasarkan dataset yang telah diverifikasi. Namun, hasilnya tetap bersifat informatif dan bukan diagnosis medis resmi.
                     </p>
                 </div>
                 
@@ -175,13 +153,6 @@ export default class AboutPage {
                     <h3 class="text-lg font-semibold text-gray-800 mb-2">Apakah penggunaan GejalaKu berbayar?</h3>
                     <p class="text-gray-700">
                         Tidak, GejalaKu dapat digunakan secara gratis. Kami berkomitmen untuk meningkatkan akses masyarakat terhadap informasi kesehatan yang berkualitas.
-                    </p>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Bagaimana GejalaKu melindungi data saya?</h3>
-                    <p class="text-gray-700">
-                        Semua data pengguna GejalaKu terenkripsi dan disimpan dengan aman. Kami tidak membagikan informasi kesehatan pribadi Anda kepada pihak ketiga tanpa persetujuan Anda.
                     </p>
                 </div>
             </div>

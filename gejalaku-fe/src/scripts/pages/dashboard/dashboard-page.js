@@ -26,12 +26,6 @@ export default class DashboardPage {
                 <i class="fas fa-info-circle mr-2"></i> Pelajari Lebih Lanjut
               </a>
             </div>
-             <div class="mt-4 flex items-center text-sm text-gray-500">
-              <i class="fas fa-shield-alt text-primary-500 mr-2"></i>
-              <span>Data Anda aman dan terenkripsi</span>
-              <i class="fas fa-user-md text-primary-500 mx-2 ml-4"></i>
-              <span>Didukung oleh tenaga medis profesional</span>
-            </div>
           </div>
           <div class="md:w-1/2">
             <div class="relative">
@@ -51,7 +45,7 @@ export default class DashboardPage {
                         <i class="fas fa-check text-sm"></i>
                     </div>
                     <div class="ml-3">
-                        <p class="text-sm font-medium">Hasil dalam 2 menit</p>
+                        <p class="text-sm font-medium">Hasil instan</p>
                     </div>
                 </div>
                 </div>
@@ -62,7 +56,7 @@ export default class DashboardPage {
                             <i class="fas fa-heartbeat text-sm"></i>
                         </div>
                         <div class="ml-3">
-                            <p class="text-sm font-medium">95% akurat</p>
+                            <p class="text-sm font-medium">Cepat dan Tepat</p>
                         </div>
                     </div>
                 </div>

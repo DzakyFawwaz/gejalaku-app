@@ -71,6 +71,7 @@ export default class CheckSymptomPage {
   }
 
   renderAutocompleteSuggestions() {
+    console.log({ sym: this.allSymptoms });
     const filtered = this.allSymptoms.filter((s) =>
       s.name.toLowerCase().includes(this.symptomSearchQuery.toLowerCase()),
     );
