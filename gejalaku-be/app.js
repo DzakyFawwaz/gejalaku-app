@@ -8,7 +8,7 @@ const init = async () => {
   const isDevelopment = process.env.NODE_ENV !== "production";
   const serverConfig = {
     port: process.env.PORT || 8888,
-    ...(isDevelopment ? {} : { host: "https://gejalaku-be.vercel.app/" }),
+    host: "https://gejalaku-be.vercel.app/",
     routes: {
       cors: {
         origin: ["*"],
