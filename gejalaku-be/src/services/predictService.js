@@ -129,14 +129,42 @@ const getAllSymptomsByBodyPart = () => {
 
   // TODO : penambahan klasifikasi nantinya akan secara otomatis melalui backend dan machine learning
   const bodyPartKeywords = {
-    kepala: ["kepala", "pusing", "penglihatan"],
-    pernapasan: ["batuk", "napas", "dada", "bersin", "paru"],
-    pencernaan: ["mual", "muntah", "diare", "perut", "lambung", "usus"],
+    umum: [
+      "demam",
+      "lemas",
+      "berat_badan",
+      "depresi",
+      "gelisah",
+      "cemas",
+      "pusing",
+      "sakit",
+    ],
+    kepala: ["kepala", "pusing"],
+    pernapasan: [
+      "batuk",
+      "napas",
+      "dada",
+      "bersin",
+      "paru",
+      "sinus",
+      "hidung",
+      "pilek",
+    ],
+    pencernaan: [
+      "mual",
+      "muntah",
+      "diare",
+      "perut",
+      "lambung",
+      "usus",
+      "pencernaan",
+      "tinja",
+      "konsumsi",
+      "sembelit",
+    ],
     kulit: ["ruam", "gatal", "kulit", "bintik", "kemerahan"],
-    umum: ["demam", "lemas", "berat_badan", "depresi", "nyeri"],
-    tenggorokan: ["tenggorokan", "dahak", "dehidrasi", "radang"],
-    mata: ["mata", "penglihatan"],
-    hidung: ["hidung", "pilek"],
+    tenggorokan: ["tenggorokan", "dahak", "dehidrasi"],
+    mata: ["mata", "penglihatan", "rabun", "penglihatan"],
     mulut: ["mulut", "lidah", "gigi"],
   };
 
@@ -156,7 +184,21 @@ const getAllSymptomsByBodyPart = () => {
     });
   });
 
-  return { symptomsByBodyPart: classified };
+  // Urutkan: umum paling atas, lainnya paling bawah
+  const orderedParts = [
+    "umum",
+    ...Object.keys(classified).filter((k) => k !== "umum" && k !== "lainnya"),
+    "lainnya",
+  ];
+  const orderedClassified = {};
+  orderedParts.forEach((part) => {
+    if (classified[part]) {
+      orderedClassified[part] = classified[part];
+    }
+  });
+  const classifiedResult = orderedClassified;
+
+  return { symptomsByBodyPart: classifiedResult };
 };
 
 module.exports = {
