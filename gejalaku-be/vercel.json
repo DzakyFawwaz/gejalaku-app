@@ -1,7 +1,4 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run build",
-  "cleanUrls": true,
   "version": 2,
   "headers": [
     {
@@ -14,6 +11,16 @@
       ]
     }
   ],
-  "public": false,
-  "rewrites": [{ "source": "/(.*)", "destination": "/app.js" }]
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.js"
+    }
+  ]
 }
