@@ -14,8 +14,6 @@
       ]
     }
   ],
-  "scripts": {
-    "build": "npm run build --output public"
-  },
+  "public": false,
   "rewrites": [{ "source": "/(.*)", "destination": "/app.js" }]
 }
