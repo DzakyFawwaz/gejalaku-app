@@ -6,14 +6,6 @@ export default class SummaryPage {
 
   async showError(message) {
     const errorHtml = `
-        <header class="bg-white shadow-sm w-full">
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                <div class="flex items-center gap-3">
-                    <i class="fas fa-file-medical text-2xl text-blue-600"></i>
-                    <span class="text-xl font-bold text-gray-800">Ringkasan Analisa</span>
-                </div>
-            </nav>
-        </header>
         <main class="max-w-7xl mx-auto py-8 text-center"><p class="text-red-600 bg-red-100 p-4 rounded-lg">${message}</p></main>
     `;
     document.body.innerHTML = errorHtml;
@@ -68,11 +60,17 @@ export default class SummaryPage {
     const medications = details.drugs?.drug ? [details.drugs.drug] : [];
     const precautionsHtml =
       precautions.length > 0
-        ? precautions.map((item) => `<li>${item}</li>`).join('')
+        ? precautions
+            .filter((p) => p != null && p != '')
+            .map((item) => `<li>${item}</li>`)
+            .join('')
         : '<li>Informasi tidak tersedia.</li>';
     const medicationsHtml =
       medications.length > 0
-        ? medications.map((item) => `<li>${item}</li>`).join('')
+        ? medications
+            .filter((m) => m != null && m != '')
+            .map((item) => `<li>${item}</li>`)
+            .join('')
         : '<li>Informasi tidak tersedia.</li>';
     return `
         <div class="space-y-4">
@@ -122,11 +120,11 @@ export default class SummaryPage {
                 <!-- Right Column: Actions -->
                 <aside class="lg:col-span-2 mt-10 lg:mt-0">
                     <div class="bg-white p-6 rounded-xl shadow-md sticky top-8">
-                        <h2 class="font-bold text-xl text-gray-800 mb-5">Tindakan</h2>
-                        <div class="space-y-3">
+                        <h2 class="tindakan font-bold text-xl text-gray-800 mb-5">Tindakan</h2>
+                        <div class="summary-actions space-y-3 mb-6">
                             ${this.renderActions()}
                         </div>
-                        <div class="bg-yellow-50 border border-yellow-200 rounded-md p-4 text-sm text-yellow-800 mt-6">
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-md p-4 text-sm text-yellow-800">
                         <strong class="font-semibold">Sanggahan Medis:</strong> Informasi ini hanya untuk tujuan edukasi dan bukan pengganti nasihat medis profesional. Selalu konsultasikan dengan penyedia layanan kesehatan untuk masalah medis.
                       </div>
                     </div>

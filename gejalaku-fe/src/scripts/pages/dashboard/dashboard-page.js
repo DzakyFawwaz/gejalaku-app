@@ -319,8 +319,6 @@ export default class DashboardPage {
   }
 
   async afterRender() {
-    document.getElementById('main-content');
-
     const isLoggedIn = !!localStorage.getItem('accessToken');
     if (isLoggedIn) {
       const registerBtn = document.getElementById('register-btn');

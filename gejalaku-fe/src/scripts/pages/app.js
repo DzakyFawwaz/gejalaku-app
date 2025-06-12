@@ -31,13 +31,16 @@ export default class App {
     const navList = this.#drawerNavigation.children.namedItem('navlist');
 
     navListMain.innerHTML = generateUnauthenticatedNavigationListMainTemplate();
-    document.getElementById('navlist-logo').addEventListener('click', () => {
-      if (window.location.hash === '#/') {
-        window.location.reload();
-      } else {
-        window.location.hash = '/';
-      }
-    });
+    const navListLogo = document.getElementById('navlist-logo');
+    if (navListLogo) {
+      navListLogo.addEventListener('click', () => {
+        if (window.location.hash === '#/' || window.location.hash === '/') {
+          window.location.reload();
+        } else {
+          window.location.hash = '/';
+        }
+      });
+    }
 
     if (!isLogin) {
       navList.innerHTML = generateUnauthenticatedNavigationListTemplate();

@@ -1,10 +1,6 @@
 export default class CheckSymptomPresenter {
   #view;
   #model;
-  allSymptoms = [];
-  selectedSymptoms = [];
-  symptomsByCategory = null;
-  symptomSearchQuery = '';
   isDropdownVisible = false;
 
   constructor({ view, model }) {
@@ -38,13 +34,13 @@ export default class CheckSymptomPresenter {
   }
 
   removeSymptom(symptomId) {
-    this.selectedSymptoms = this.selectedSymptoms.filter((s) => s.id !== symptomId);
+    this.#view.selectedSymptoms = this.#view.selectedSymptoms.filter((s) => s.id !== symptomId);
     this.#view.rerender(this);
   }
 
   setSearchQuery(query) {
-    this.symptomSearchQuery = query;
-    this.isDropdownVisible = true;
+    this.#view.symptomSearchQuery = query;
+    this.#view.isDropdownVisible = true;
     this.#view.rerender(this);
   }
 

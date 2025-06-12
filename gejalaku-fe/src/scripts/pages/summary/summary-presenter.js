@@ -61,7 +61,7 @@ export default class SummaryPresenter {
   }
 
   navigateToHome() {
-    window.location.hash = '/';
+    window.location.hash = '/dashboard';
   }
 
   navigateToCheckSymptom() {
