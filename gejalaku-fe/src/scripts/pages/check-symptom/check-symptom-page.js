@@ -201,7 +201,7 @@ export default class CheckSymptomPage {
     const backbutton = document.getElementById('back-to-home');
     if (backbutton) {
       backbutton.onclick = () => {
-        window.location.href = '/';
+        window.location.hash = '/';
       };
     }
     document.querySelectorAll('.common-symptom-btn').forEach((btn) => {
