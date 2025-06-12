@@ -1,0 +1,28 @@
+# Vercel akan menginstal dependensi secara otomatis berdasarkan package-lock.json
+
+# jadi kita tidak perlu mengunggah node_modules.
+
+node_modules
+
+# Abaikan file environment lokal, karena kita akan menggunakan Environment Variables di Vercel
+
+.env
+\*.env.local
+
+# Abaikan folder Git
+
+.git
+
+# Abaikan file log dan cache
+
+\*.log
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.npm
+.cache
+
+# Abaikan file dokumentasi atau catatan yang tidak perlu di produksi
+
+README.md
+NOTES.md
