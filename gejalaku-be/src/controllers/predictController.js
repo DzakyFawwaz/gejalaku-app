@@ -1,12 +1,4 @@
 const mlService = require("../services/predictService");
-// const { firebaseApp } = require("../services/firebaseService");
-// const {
-//   doc,
-//   getFirestore,
-//   setDoc,
-//   getDocs,
-//   collection,
-// } = require("firebase/firestore");
 
 const handlePredict = async (request, h) => {
   const { symptoms } = request.payload || {};
