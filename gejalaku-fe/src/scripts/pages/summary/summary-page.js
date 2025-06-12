@@ -141,7 +141,7 @@ export default class SummaryPage {
 
   async rerenderContent() {
     const appContainer = document.querySelector('main');
-    appContainer.outerHTML = await this.render();
+    appContainer.innerHTML = await this.render();
     await new Promise((resolve) => setTimeout(resolve, 0));
     this.#setupEventListeners();
   }

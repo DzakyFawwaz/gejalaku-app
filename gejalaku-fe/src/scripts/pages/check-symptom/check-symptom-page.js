@@ -9,6 +9,7 @@ export default class CheckSymptomPage {
   isDropdownVisible = false;
 
   #presenter = null;
+  #content = null;
 
   renderSelectedSymptoms() {
     if (this.selectedSymptoms.length === 0) {
@@ -33,7 +34,14 @@ export default class CheckSymptomPage {
       return '<p class="text-gray-500">Memuat kategori gejala...</p>';
     }
 
-    return Object.entries(this.symptomsByCategory)
+    // Check if mobile view (screen width <= 640px)
+    const isMobile = window.innerWidth <= 640;
+    const categories =
+      isMobile && this.symptomsByCategory['umum']
+        ? { umum: this.symptomsByCategory['umum'] }
+        : this.symptomsByCategory;
+
+    return Object.entries(categories)
       .map(([category, symptoms]) => {
         const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
 
@@ -97,7 +105,7 @@ export default class CheckSymptomPage {
 
   async render() {
     return `     
-      <main class="w-full max-w-7xl mx-auto flex-auto py-8 lg:py-12 px-4 sm:px-6 lg:px-8">
+      <div class="w-full max-w-7xl mx-auto flex-auto py-8 lg:py-12 px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-5 lg:gap-12">
         <div class="lg:col-span-3 flex flex-col gap-10">
           <div class="mb-4">
@@ -120,11 +128,11 @@ export default class CheckSymptomPage {
               <i class="fas fa-search text-gray-400"></i>
               </div>
               <input
-              id="symptoms-input"
-              type="text"
-              placeholder="Contoh: Sakit kepala, demam, batuk..."
-              class="w-full rounded-lg border border-gray-300 bg-white/60 backdrop-blur-md py-3 pl-12 pr-4 text-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-              value="${this.symptomSearchQuery}"
+                id="symptoms-input"
+                type="text"
+                placeholder="Contoh: Sakit kepala, demam, batuk..."
+                class="w-full rounded-lg border border-gray-300 bg-white/60 backdrop-blur-md py-3 px-4 text-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+                value="${this.symptomSearchQuery}"
               />
               <div id="autocomplete-suggestions" class="autocomplete-suggestions absolute z-20 w-full mt-2 bg-white/60 backdrop-blur-md rounded-lg shadow-lg border border-gray-200 overflow-y-auto max-h-60 ${!this.isDropdownVisible ? 'hidden' : ''}">
               ${this.renderAutocompleteSuggestions()}
@@ -139,7 +147,7 @@ export default class CheckSymptomPage {
           </div>
         </div>
 
-        <aside class="lg:col-span-2 mt-10 lg:mt-0">
+        <aside class="lg:col-span-2 mt-10 lg:mt-0 sticky top-8">
           <div class="bg-white/60 backdrop-blur-md p-6 rounded-xl shadow-md sticky top-8">
           <div class="flex justify-between items-center mb-5">
             <h2 class="font-bold text-xl text-gray-800">Gejala Saya</h2>
@@ -150,8 +158,8 @@ export default class CheckSymptomPage {
           </ul>
           <div class="mt-6">
             <div class="flex justify-between items-center text-sm text-gray-600 mb-2 px-1 select-none">
-            <span>Langkah 1 dari 2</span>
-            <span class="font-semibold">50%</span>
+              <span>Langkah 1 dari 2</span>
+              <span class="font-semibold">50%</span>
             </div>
             <div class="w-full h-2.5 bg-gray-200 rounded-full overflow-hidden">
             <div class="h-full w-1/2 bg-blue-600 rounded-full transition-all"></div>
@@ -159,10 +167,16 @@ export default class CheckSymptomPage {
           </div>
           <button 
             id="check-symptom-button" 
-            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg mt-6 transition-all duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed"
+            class="w-full bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold py-3 rounded-lg mt-6 transition-all duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed"
             ${this.selectedSymptoms.length === 0 ? 'disabled' : ''}
             >
             Analisa Gejalaku
+          </button>
+          <button 
+            id="back-to-home" 
+            class="w-full text-black cursor-pointer border border-transparent hover:border hover:border-gray-500 py-3 rounded-lg mt-3 transition-all duration-200"
+            >
+            Kembali ke Beranda
           </button>
           </div>
         </aside>
@@ -179,11 +193,17 @@ export default class CheckSymptomPage {
 
     await this.#presenter.fetchSymptoms();
 
-    document.querySelector('main').outerHTML = await this.render();
+    document.querySelector('main').innerHTML = await this.render();
     this.#setup();
   }
 
   #setup() {
+    const backbutton = document.getElementById('back-to-home');
+    if (backbutton) {
+      backbutton.onclick = () => {
+        window.location.href = '/';
+      };
+    }
     document.querySelectorAll('.common-symptom-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const symptom = JSON.parse(btn.getAttribute('data-symptom'));
@@ -287,7 +307,7 @@ export default class CheckSymptomPage {
 
   async rerender() {
     const appContainer = document.querySelector('main');
-    appContainer.outerHTML = await this.render();
+    appContainer.innerHTML = await this.render();
     await new Promise((resolve) => setTimeout(resolve, 0));
     this.#setup();
   }

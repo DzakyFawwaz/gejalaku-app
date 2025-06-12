@@ -7,7 +7,7 @@ export default class RegisterPage {
 
   async render() {
     return `
-      <form id="register-form" class="flex flex-col justify-center mt-10 w-md mx-auto" novalidate>
+      <form id="register-form" class="flex flex-col justify-center mt-10 w-full px-4 max-w-md mx-auto" novalidate>
         <div class="mb-5">
         <label
           for="email"

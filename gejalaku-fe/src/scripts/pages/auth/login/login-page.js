@@ -7,7 +7,7 @@ export default class LoginPage {
 
   async render() {
     return `
-          <form id="login-form" class="mx-auto text-start min-w-md flex-grow mt-16 mb-2" action="#" method="POST">
+          <form id="login-form" class="mx-auto px-4 w-full text-start max-w-md flex-grow mt-16 mb-2" action="#" method="POST">
               <label
                 for="email"
                 class="block mb-1 text-gray-900 font-semibold text-sm"

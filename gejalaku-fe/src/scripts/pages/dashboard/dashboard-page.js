@@ -11,11 +11,11 @@ export default class DashboardPage {
             <p class="my-4 text-lg text-gray-600 max-w-lg">
               GejalaKu menggunakan kecerdasan buatan untuk memahami gejala Anda dan membantu memberikan arahan untuk langkah selanjutnya.
             </p>
-            <div class="flex flex-col sm:flex-row space- sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+            <div class="flex flex-col gap-4 sm:flex-row space- sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
               <a
                 href="#/check-symptom"
                 id="cek-gejala-btn"
-                class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition transform hover:-translate-y-1 shadow-md pointer"
+                class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition transform hover:-translate-y-1 mr-0 shadow-md pointer"
               >
                 <i class="fas fa-search mr-2"></i> Cek Gejala Sekarang
               </a>
@@ -23,7 +23,7 @@ export default class DashboardPage {
                 href="#/about"
                 class="border border-blue-600 text-blue-600 font-medium px-6 py-3 rounded-md hover:bg-blue-50 transition"
               >
-                <i class="fas fa-info-circle mr-2"></i> Pelajari Lebih Lanjut
+                <i class="fas fa-info-circle mr-2"></i> Tentang Kami
               </a>
             </div>
           </div>
@@ -287,7 +287,6 @@ export default class DashboardPage {
         </div>
       </section>
 
-      <!-- CTA Section -->
       <section class="py-16 bg-blue-600">
         <div class="max-w-4xl mx-auto px-4 text-center">
           <h2 class="text-3xl font-bold text-white mb-4">Siap untuk menjaga kesehatan Anda?</h2>
