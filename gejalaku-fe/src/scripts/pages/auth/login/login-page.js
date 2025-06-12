@@ -33,7 +33,7 @@ export default class LoginPage {
                 name="password"
                 type="password"
                 placeholder="Enter your password"
-                class="w-full mb-2 px-3 py-2 border border-gray-300 rounded-md text-gray-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-md text-gray-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 required
               />
               <button id="login-button type="submit" class="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1">Log In</button>
