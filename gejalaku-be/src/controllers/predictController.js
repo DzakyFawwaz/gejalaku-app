@@ -49,11 +49,10 @@ const getAllPredictions = async (request, h) => {
   try {
     const db = getFirestore(firebaseApp);
     const predictions = [];
-    const querySnapshot = await getDocs(collection(db, "cities"));
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      predictions.push({ id: doc.id, ...doc.data() });
-    });
+    // const querySnapshot = await getDocs(collection(db, "cities"));
+    // querySnapshot.forEach((doc) => {
+    //   predictions.push({ id: doc.id, ...doc.data() });
+    // });
 
     return h.response(predictions).code(200);
   } catch (error) {

@@ -5,7 +5,6 @@ export function getAccessToken() {
   try {
     const accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
 
-    console.log({ accessToken });
     if (accessToken === null || accessToken === 'null' || accessToken === 'undefined') {
       return null;
     }
@@ -42,8 +41,6 @@ const unauthenticatedRoutesOnly = ['/login', '/register'];
 export function checkUnauthenticatedRouteOnly(page) {
   const url = getActiveRoute();
   const isLogin = !!getAccessToken();
-
-  console.log({ isLogin });
 
   if (unauthenticatedRoutesOnly.includes(url) && isLogin) {
     location.hash = '/';

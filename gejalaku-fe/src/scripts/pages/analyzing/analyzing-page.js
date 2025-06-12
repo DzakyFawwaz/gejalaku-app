@@ -56,7 +56,7 @@ export default class AnalyzingSymptomPage {
       if (window.location.hash) {
         const match = window.location.hash.match(/[?&]id=([^&]+)/);
         if (match) {
-          id = parseInt(match[1], 10); // Ensure ID is an integer
+          id = parseInt(match[1], 10);
         }
       }
 

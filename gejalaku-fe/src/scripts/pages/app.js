@@ -10,13 +10,11 @@ import {
 
 export default class App {
   #content;
-  #drawerButton;
   #drawerNavigation;
   #skipLinkButton;
 
-  constructor({ content, drawerNavigation, drawerButton, skipLinkButton }) {
+  constructor({ content, drawerNavigation, skipLinkButton }) {
     this.#content = content;
-    this.#drawerButton = drawerButton;
     this.#drawerNavigation = drawerNavigation;
     this.#skipLinkButton = skipLinkButton;
 
@@ -51,24 +49,30 @@ export default class App {
       getLogout();
       this.#setupNavigationList();
     };
+    const handleViewHistoryPage = () => {
+      window.location.hash = '/history';
+    };
 
     const handleLoginRegister = (event) => {
       const target = event.target;
       if (target.id === 'login-button') {
-        // Handle login button click
-        console.log('Login button clicked');
+        window.location.hash = '/login';
       } else if (target.id === 'register-button') {
-        // Handle register button click
-        console.log('Register button clicked');
+        window.location.hash = '/register';
       }
     };
 
     navList.innerHTML = generateAuthenticatedNavigationListTemplate();
     const logoutButton = navList.querySelector('#logout-button');
+    const historyButton = navList.querySelector('#history-button');
     const loginRegisterContainer = navList.querySelector('#login-register-container');
 
     if (logoutButton) {
       logoutButton.addEventListener('click', handleLogout);
+    }
+
+    if (historyButton) {
+      historyButton.addEventListener('click', handleViewHistoryPage);
     }
 
     if (loginRegisterContainer) {

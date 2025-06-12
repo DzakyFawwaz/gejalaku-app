@@ -1,15 +1,12 @@
-// const Joi = require("joi");
 const {
   handlePredict,
-  getAllPredictions,
+  // getAllPredictions,
 } = require("../controllers/predictController");
 const {
   ALL_MODEL_SYMPTOMS_ARRAY,
   getAllSymptoms,
   getAllSymptomsByBodyPart,
 } = require("../services/predictService");
-
-console.log(ALL_MODEL_SYMPTOMS_ARRAY);
 
 module.exports = [
   {
@@ -27,9 +24,9 @@ module.exports = [
     path: "/predict-symptoms",
     handler: handlePredict,
   },
-  {
-    method: "GET",
-    path: "/predictions",
-    handler: getAllPredictions,
-  },
+  // {
+  //   method: "GET",
+  //   path: "/predictions",
+  //   handler: getAllPredictions,
+  // },
 ];

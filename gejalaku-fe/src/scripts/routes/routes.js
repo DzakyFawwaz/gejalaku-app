@@ -6,6 +6,7 @@ import AboutPage from '../pages/about/about-page';
 import CheckSymptomPage from '../pages/check-symptom/check-symptom-page';
 import AnalyzingSymptomPage from '../pages/analyzing/analyzing-page';
 import SummaryPage from '../pages/summary/summary-page';
+import HistoryPage from '../pages/history/history-page';
 
 export const routes = {
   '/login': () => checkUnauthenticatedRouteOnly(new LoginPage()),
@@ -14,6 +15,7 @@ export const routes = {
   '/': () => new DashboardPage(),
   '/dashboard': () => new DashboardPage(),
   '/about': () => new AboutPage(),
+  '/history': () => new HistoryPage(),
   '/check-symptom': () => checkAuthenticatedRoute(new CheckSymptomPage()),
   '/analyzing': () => checkAuthenticatedRoute(new AnalyzingSymptomPage()),
   '/summary': () => checkAuthenticatedRoute(new SummaryPage()),

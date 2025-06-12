@@ -5,9 +5,10 @@ const predictRoutes = require("./src/routes/predictRoutes.js");
 const { initializeService } = require("./src/services/predictService.js");
 
 const init = async () => {
-  const server = Hapi.server({
+  const isDevelopment = process.env.NODE_ENV !== "production";
+  const serverConfig = {
     port: process.env.PORT || 8888,
-    host: "https://gejalaku-be.vercel.app/",
+    ...(isDevelopment ? {} : { host: "https://gejalaku-be.vercel.app/" }),
     routes: {
       cors: {
         origin: ["*"],
@@ -21,7 +22,8 @@ const init = async () => {
         credentials: true,
       },
     },
-  });
+  };
+  const server = Hapi.server(serverConfig);
 
   try {
     await initializeFirebase();

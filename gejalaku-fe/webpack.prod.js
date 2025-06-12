@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    publicPath: '/gejalaku-app/', // Replace 'gejalaku-app' with your repository name
+    publicPath: '/gejalaku-app/',
   },
   module: {
     rules: [
@@ -27,10 +27,10 @@ module.exports = merge(common, {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i, // Add this rule for image files
+        test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name][ext]', // Output images to 'images' folder
+          filename: 'images/[name][ext]',
         },
       },
     ],

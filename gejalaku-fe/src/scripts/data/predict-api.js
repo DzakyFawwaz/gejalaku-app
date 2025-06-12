@@ -1,7 +1,6 @@
 import { BASE_URL } from '../config';
 
 const ENDPOINTS = {
-  // Auth
   SYMTOPMS_BY_BODYPART: `${BASE_URL}/symptoms-by-bodypart`,
   PREDICT_SYMPTOMS: `${BASE_URL}/predict-symptoms`,
 };

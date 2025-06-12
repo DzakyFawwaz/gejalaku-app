@@ -1,5 +1,3 @@
-import { getAllSymptomsByBodyPart, predictSymptoms } from '../../data/predict-api';
-
 export default class CheckSymptomPresenter {
   #view;
   #model;
@@ -14,13 +12,9 @@ export default class CheckSymptomPresenter {
     this.#model = model;
   }
 
-  async init() {
-    await this.fetchSymptoms();
-  }
-
   async fetchSymptoms() {
     try {
-      const res = await getAllSymptomsByBodyPart();
+      const res = await this.#model.getAllSymptomsByBodyPart();
       if (res.ok) {
         const sympomsByBodypart = res['symptomsByBodyPart'];
 
@@ -56,26 +50,8 @@ export default class CheckSymptomPresenter {
 
   async analyzeSymptoms() {
     try {
-      const payload = this.selectedSymptoms.map((s) => s.id);
-      const res = await predictSymptoms(payload);
-
-      if (res.ok) {
-        const predictionData = {
-          ...res,
-          timestamp: new Date().toISOString(),
-        };
-        const savedId = await this.savePrediction(predictionData);
-        window.location.hash = `/summary?id=${savedId}`;
-      }
-    } catch (e) {
-      alert('Gagal menyimpan hasil analisa. Silakan coba lagi.');
-    }
-  }
-
-  async analyzeSymptoms() {
-    try {
       const payload = this.#view.selectedSymptoms.map((s) => s.id);
-      const res = await predictSymptoms(payload);
+      const res = await this.#model.predictSymptoms(payload);
 
       if (res.ok) {
         const predictionData = {

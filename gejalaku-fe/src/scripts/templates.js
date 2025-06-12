@@ -7,6 +7,7 @@ export function generateUnauthenticatedNavigationListTemplate() {
 
 export function generateAuthenticatedNavigationListTemplate() {
   return `
+  <li><a tabIndex="-1" id="view-history-button" href="#/history" class="text-sm font-normal hover:underline cursor-pointer">History</a></li>
   <li><a tabIndex="-1" id="logout-button" href="#/login" class="text-red-600 text-sm font-normal hover:underline cursor-pointer">Logout</a></li>
   `;
 }

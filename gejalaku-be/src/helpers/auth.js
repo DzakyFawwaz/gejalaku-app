@@ -1,4 +1,3 @@
-// Helper to handle Firebase response errors
 function handleFirebaseError(error) {
   let errorMessage = "An unknown error occurred";
 
