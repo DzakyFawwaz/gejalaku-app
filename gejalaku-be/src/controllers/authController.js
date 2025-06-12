@@ -2,7 +2,11 @@ const handleFirebaseError = require("../helpers/auth");
 const { register, login } = require("../services/firebaseService");
 
 const registerHandler = async (request, h) => {
-  const { email, password } = request.payload;
+  const { email = null, password = null } = request.payload;
+
+  if (!email || !password) {
+    return h.response({ error: "Email and password are required" }).code(400);
+  }
 
   try {
     const user = await register(email, password);
@@ -19,7 +23,11 @@ const registerHandler = async (request, h) => {
 };
 
 const loginHandler = async (request, h) => {
-  const { email, password } = request.payload;
+  const { email = null, password = null } = request.payload;
+
+  if (!email || !password) {
+    return h.response({ error: "Email and password are required" }).code(400);
+  }
 
   try {
     const user = await login(email, password);
