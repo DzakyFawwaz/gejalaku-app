@@ -1,7 +1,4 @@
-const {
-  handlePredict,
-  // getAllPredictions,
-} = require("../controllers/predictController");
+const { handlePredict } = require("../controllers/predictController");
 const {
   ALL_MODEL_SYMPTOMS_ARRAY,
   getAllSymptoms,
@@ -17,7 +14,7 @@ module.exports = [
   {
     method: "GET",
     path: "/symptoms-by-bodypart",
-    handler: getAllSymptomsByBodyPart,
+    handler: getAllSymptoms,
   },
   {
     method: "POST",
