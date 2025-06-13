@@ -6,6 +6,7 @@ import {
   generateUnauthenticatedNavigationListTemplate,
   generateUnauthenticatedNavigationListMainTemplate,
   generateAuthenticatedNavigationListTemplate,
+  generateAuthenticatedNavigationListTemplateMobile,
 } from '../templates';
 
 export default class App {
@@ -65,7 +66,13 @@ export default class App {
       }
     };
 
-    navList.innerHTML = generateAuthenticatedNavigationListTemplate();
+    const isMobile = window.innerWidth <= 640;
+
+    if (isMobile) {
+      navList.innerHTML = generateAuthenticatedNavigationListTemplateMobile();
+    } else {
+      navList.innerHTML = generateAuthenticatedNavigationListTemplate();
+    }
     const logoutButton = navList.querySelector('#logout-button');
     const historyButton = navList.querySelector('#history-button');
     const loginRegisterContainer = navList.querySelector('#login-register-container');
